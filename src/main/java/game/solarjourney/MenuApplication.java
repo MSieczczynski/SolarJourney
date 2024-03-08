@@ -13,7 +13,7 @@ public class MenuApplication extends Application {
     {
         FXMLLoader fxmlLoader = new FXMLLoader(MenuApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        stage.setTitle("Hello World!");
         stage.setScene(scene);
         stage.show();
     }
