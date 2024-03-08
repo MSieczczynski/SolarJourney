@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="game.solarjourney.Menu.MenuController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane prefHeight="358.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.solarjourney.Menu.MenuController">
+   <children>
+      <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" layoutY="149.0" prefHeight="25.0" prefWidth="600.0" />
+      <Button layoutX="275.0" layoutY="124.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="Hello!" />
+      <Button layoutX="270.0" layoutY="191.0" mnemonicParsing="false" onAction="#switchToSettings" text="Settings" />
+   </children>
+</Pane>
