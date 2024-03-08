@@ -1,4 +1,4 @@
-package game.solarjourney;
+package game.solarjourney.Menu;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package game.solarjourney;
+package game.solarjourney.Menu;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -11,6 +11,6 @@ module game.solarjourney {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens game.solarjourney to javafx.fxml;
-    exports game.solarjourney;
+    exports game.solarjourney.Menu;
+    opens game.solarjourney.Menu to javafx.fxml;
 }
