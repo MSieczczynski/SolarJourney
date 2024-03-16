@@ -21,17 +21,16 @@ public class MenuController {
     public void switchToSettings(ActionEvent event) throws IOException
     {
         //Autor:Michał Sieczczyński
+        /*
         FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Settings/SettingsView.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlloader.load());
         stage.setScene(scene);
         stage.show();
-        /*
-        Robi to samo co powyżej uzywajac setRoot.
+         */
         FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Settings/SettingsView.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.getScene().setRoot(fxmlloader.load());
-         */
     }
 
     public void switchToGame()

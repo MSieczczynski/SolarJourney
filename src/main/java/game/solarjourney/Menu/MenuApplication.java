@@ -2,7 +2,6 @@ package game.solarjourney.Menu;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -13,15 +12,15 @@ public class MenuApplication extends Application {
     public void start(Stage stage) throws IOException
     {
         FXMLLoader fxmlloader = new FXMLLoader(MenuApplication.class.getResource("/game/solarjourney/Menu/MenuView.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("MenuView.fxml")); To samo co na górze
+        //Parent root = FXMLLoader.load(getClass().getResource("MenuView.fxml"));To samo co nizej
         Scene scene = new Scene(fxmlloader.load());
         stage.setTitle("Solar Journey");
         stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         launch(args);
     }
 }
