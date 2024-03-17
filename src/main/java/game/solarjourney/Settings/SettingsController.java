@@ -11,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javax.xml.stream.EventFilter;
@@ -36,7 +38,7 @@ public class SettingsController {
     @FXML
     protected void keyBind(ActionEvent event)
     {
-        Button btn = (Button) event.getSource();
+        Button btn = (Button)event.getSource();
         btn.setText("");
         EventHandler keyBind = new EventHandler()
         {
@@ -44,7 +46,7 @@ public class SettingsController {
             public void handle(Event event)
             {
                 key = ((KeyEvent) event).getText();
-                if (key != null)
+                if (key != null )
                 {
                     btn.removeEventHandler(KeyEvent.KEY_PRESSED, this);
                     btn.setText(key);
@@ -54,5 +56,6 @@ public class SettingsController {
         };
         btn.addEventHandler(KeyEvent.KEY_PRESSED, keyBind);
     }
+    
 }
 
