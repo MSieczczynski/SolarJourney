@@ -10,40 +10,55 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.solarjourney.Settings.SettingsController">
    <children>
-      <Button cache="true" layoutX="25.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="50.0" prefWidth="200.0" text="Back to menu" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="700.0">
-         <font>
-            <Font name="Californian FB" size="26.0" />
-         </font></Button>
-      <HBox layoutX="300.0" layoutY="160.0" prefHeight="550.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="160.0">
+      <HBox layoutX="300.0" layoutY="160.0" prefHeight="550.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="160.0">
          <children>
-            <VBox maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="670.0" style="-fx-background-color: green;" stylesheets="@settings.css">
+            <VBox maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="670.0" stylesheets="@settings.css">
                <children>
-                  <Label maxWidth="1.7976931348623157E308" text="Difficulty" />
-                  <Label maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" stylesheets="@settings.css" text="Throttle up">
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Difficulty" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" stylesheets="@settings.css" text="Throttle up">
                      <font>
                         <Font size="30.0" />
                      </font></Label>
-                  <Label maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Throttle down" />
-                  <Label maxWidth="1.7976931348623157E308" text="Throttle sensivity" />
-                  <Label maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Turn left" />
-                  <Label maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Turn right" />
-                  <Label maxWidth="1.7976931348623157E308" text="Turn sensivity" />
-                  <Label maxWidth="1.7976931348623157E308" text="Take off" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Throttle down" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Throttle sensivity" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Turn left" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Turn right" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Turn sensivity" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Take off" />
                </children></VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="550.0" prefWidth="470.0" style="-fx-background-color: yellow;" stylesheets="@settings.css">
+            <VBox alignment="TOP_CENTER" prefHeight="550.0" prefWidth="470.0" stylesheets="@settings.css">
                <children>
-                  <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Normal" />
+                  <Button fx:id="difficulty" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchDifficulty" text="Normal" />
                   <Button fx:id="upButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" prefWidth="60.0" text="w" />
                   <Button fx:id="downButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" text="s" />
-                  <Slider max="200.0" maxWidth="1.7976931348623157E308" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
+                  <Slider fx:id="throttleSensivity" max="200.0" maxWidth="1.7976931348623157E308" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
                   <Button fx:id="leftButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" text="a" />
                   <Button fx:id="rightButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" text="d" />
-                  <Slider max="200.0" maxWidth="1.7976931348623157E308" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#keyBind" text="l" />
+                  <Slider fx:id="turnSensivity" max="200.0" maxWidth="1.7976931348623157E308" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
+                  <Button fx:id="takeOffButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#keyBind" text="l" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <Button layoutX="1206.0" layoutY="943.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Button" />
+      <Label alignment="CENTER" layoutX="932.0" layoutY="70.0" text="Settings" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Californian FB" size="96.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="475.0" layoutY="830.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="475.0">
+         <children>
+            <Button cache="true" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="50.0" prefWidth="200.0" text="Back to menu" HBox.hgrow="NEVER">
+               <font>
+                  <Font name="Californian FB" size="26.0" />
+               </font>
+            </Button>
+            <Label disable="true" prefHeight="50.0" prefWidth="200.0" text="Label" visible="false" />
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Save" HBox.hgrow="NEVER">
+               <font>
+                  <Font name="Californian FB" size="26.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

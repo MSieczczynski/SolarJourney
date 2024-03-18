@@ -24,7 +24,8 @@ public class SettingsController {
     String key = null;
 
     @FXML
-    public void switchToMenu(ActionEvent event) throws IOException {
+    public void switchToMenu(ActionEvent event) throws IOException
+    {
         FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Menu/MenuView.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("MenuView.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -56,6 +57,55 @@ public class SettingsController {
         };
         btn.addEventHandler(KeyEvent.KEY_PRESSED, keyBind);
     }
-    
+
+    @FXML
+    private Button difficulty;
+
+    @FXML
+    protected void switchDifficulty(ActionEvent event)
+    {
+        if(difficulty.getText().equals("Easy"))
+            difficulty.setText("Normal");
+        else if(difficulty.getText().equals("Normal"))
+            difficulty.setText("Hard");
+        else if(difficulty.getText().equals("Hard"))
+            difficulty.setText("Easy");
+    }
+
+    String difficultyText;
+
+    @FXML
+    private Button upButton;
+    String upText;
+    @FXML
+    private Button downButton;
+    String downText;
+    @FXML
+    private Button leftButton;
+    String leftText;
+    @FXML
+    private Button rightButton;
+    String rightText;
+    @FXML
+    private Button takeOffButton;
+    String takeOffText;
+    @FXML
+    private Slider throttleSensivity;
+    int throttleSensivityValue;
+    @FXML
+    private Slider turnSensivity;
+    int turnSensivityValue;
+    @FXML
+    protected void Save(ActionEvent event)
+    {
+        difficultyText = difficulty.getText();
+        upText = upButton.getText();
+        downText = downButton.getText();
+        leftText = leftButton.getText();
+        rightText = rightButton.getText();
+        takeOffText = takeOffButton.getText();
+        throttleSensivityValue = (int)throttleSensivity.getValue();
+        turnSensivityValue = (int)turnSensivity.getValue();
+    }
 }
 

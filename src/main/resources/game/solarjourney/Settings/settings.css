@@ -16,7 +16,9 @@
 
 .label
 {
+     -fx-background-color: #9494b8;
      -fx-pref-height: 50px;
+     -fx-min-height: 50px;
      -fx-font-size: 25px;
      -fx-font-family: 'Californian FB', Arial, regular;
      -fx-alignment: center;
@@ -30,4 +32,10 @@
      -fx-border-style: solid;
      -fx-pref-height: 50px;
      -fx-font-size: 15px;
+     -fx-min-height: 50px;
+}
+
+.vbox
+{
+    -fx-background-color: transparent;
 }
