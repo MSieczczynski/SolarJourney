@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="358.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.solarjourney.Menu.MenuController">
+<Pane prefHeight="287.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.solarjourney.Menu.MenuController">
    <children>
       <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" layoutY="149.0" prefHeight="25.0" prefWidth="600.0" />
       <Button layoutX="275.0" layoutY="14.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="Hello!" />
