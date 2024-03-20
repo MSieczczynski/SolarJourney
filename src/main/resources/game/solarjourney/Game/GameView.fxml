@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="game.solarjourney.Game.GameView"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="58.0" prefWidth="600.0">
+         <children>
+            <ProgressBar layoutX="64.0" layoutY="18.0" prefHeight="22.0" prefWidth="102.0" progress="1.0" />
+            <Text fill="#110c9f" fontSmoothingType="LCD" layoutX="22.0" layoutY="33.0" strokeType="OUTSIDE" text="Fuel" textAlignment="CENTER" />
+            <Text fill="#3523aa" layoutX="203.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocity" />
+            <Text fill="#081488" layoutX="322.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is it too fast to land?" />
+            <RadioButton layoutX="451.0" layoutY="20.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="58.0" selected="true" text="Yes" textFill="#070000" />
+            <RadioButton layoutX="524.0" layoutY="16.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="58.0" text="No" />
+            <TextField layoutX="260.0" layoutY="15.0" prefHeight="25.0" prefWidth="58.0" text="10" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="58.0" prefHeight="342.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="342.0" fitWidth="600.0">
+               <image>
+                  <Image url="@IMG_2636.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

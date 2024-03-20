@@ -1,6 +1,4 @@
 package game.solarjourney.Settings;
 
-public class SettingsClass
-{
-
+public class SettingsClass{
 }
