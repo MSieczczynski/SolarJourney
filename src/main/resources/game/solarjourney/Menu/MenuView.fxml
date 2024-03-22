@@ -12,20 +12,20 @@
    <children>
       <Label fx:id="welcomeText" alignment="CENTER" contentDisplay="CENTER" layoutY="149.0" prefHeight="25.0" prefWidth="600.0" />
       <Button layoutX="275.0" layoutY="14.0" mnemonicParsing="false" onAction="#onHelloButtonClick" text="Hello!" />
-      <Button layoutX="269.0" layoutY="298.0" mnemonicParsing="false" onAction="#switchToSettings" text="Settings" />
+      <Button layoutX="262.0" layoutY="247.0" mnemonicParsing="false" onAction="#switchToSettings" text="Settings" />
       <Text layoutX="226.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set your name" wrappingWidth="162.599609375">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <TextField layoutX="142.0" layoutY="103.0" promptText="type here" />
-      <Text layoutX="217.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Language">
+      <TextField fx:id="field" layoutX="142.0" layoutY="103.0" promptText="type here" />
+      <Text layoutX="217.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Language">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <RadioButton layoutX="199.0" layoutY="230.0" mnemonicParsing="false" text="Polish" />
-      <RadioButton layoutX="328.0" layoutY="230.0" mnemonicParsing="false" text="English" />
+      <RadioButton fx:id="polRB" layoutX="200.0" layoutY="221.0" mnemonicParsing="false" text="Polish" />
+      <RadioButton fx:id="angRB" layoutX="338.0" layoutY="221.0" mnemonicParsing="false" text="English" />
       <Button layoutX="371.0" layoutY="103.0" mnemonicParsing="false" onAction="#setName" text="Set" />
    </children>
 </Pane>

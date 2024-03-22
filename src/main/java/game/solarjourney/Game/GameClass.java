@@ -20,17 +20,19 @@ import java.net.URL;
 
 public class GameClass extends  Application{
     public static String name;
+
     @Override
     public void start(Stage stage) throws IOException {
         URL url = getClass().getResource("GameView.fxml");
         FXMLLoader loader = new FXMLLoader(url);
-        if(loader == null){
+        if(loader.equals(null)){
             throw new RuntimeException("Could not find" + url.toString());
         }
         Scene scene = new Scene(loader.load());
         stage.setTitle("Game");
         stage.setScene(scene);
         stage.show();
+        name = "a";
     }
     public static void main(String[] args){
         launch();

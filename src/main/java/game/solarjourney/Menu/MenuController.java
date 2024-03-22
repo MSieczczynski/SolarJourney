@@ -9,15 +9,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static game.solarjourney.Game.GameClass.name;
+
 public class MenuController {
 
     private Stage stage;
     private Scene scene;
+    @FXML
+    public RadioButton polRB;
+    @FXML
+    public RadioButton angRB;
+
     @FXML
     private TextField field;
 
@@ -44,8 +52,8 @@ public class MenuController {
     private Label welcomeText;
     @FXML
     public void setName(ActionEvent e) throws IOException{
-        GameClass.name = field.getText();
-        System.out.println(GameClass.name);
+        name = field.getText();
+        System.out.println(name);
     }
 
     @FXML

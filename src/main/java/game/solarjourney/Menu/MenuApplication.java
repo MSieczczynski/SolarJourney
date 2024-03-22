@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MenuApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException
     {
@@ -16,7 +17,7 @@ public class MenuApplication extends Application {
         Scene scene = new Scene(fxmlloader.load());
         stage.setTitle("Solar Journey");
         stage.setScene(scene);
-        stage.setFullScreen(true);
+        stage.setFullScreen(false);
         stage.show();
     }
 
