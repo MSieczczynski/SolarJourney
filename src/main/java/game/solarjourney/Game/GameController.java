@@ -29,7 +29,7 @@ public class GameController{
     @FXML
     public RadioButton yesRB;
     @FXML
-    public RadioButton noRB;
+    public Button menu;
     @FXML
     public ProgressBar fuelLevel;
     @FXML
@@ -54,10 +54,8 @@ public class GameController{
     }
     @FXML
     public void setRB(){
-        if(f == 1){
+        if(f == 1) {
             yesRB.selectedProperty();
-        } else if (f == 2) {
-            noRB.selectedProperty();
         }
     }
     public void moveRocket(ActionEvent e){
@@ -65,5 +63,14 @@ public class GameController{
     }
     public void setFuelLevel(){
         //do doczytania jak ustawić poziom na progress bar
+    }
+    @FXML
+    public void toMenu(ActionEvent e)throws IOException{
+        FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Menu/MenuView.fxml"));
+        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlloader.load());
+        stage.setScene(scene);
+        stage.setFullScreen(false);
+        stage.show();
     }
 }

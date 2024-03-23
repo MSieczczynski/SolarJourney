@@ -22,9 +22,7 @@ public class MenuController {
     private Stage stage;
     private Scene scene;
     @FXML
-    public RadioButton polRB;
-    @FXML
-    public RadioButton angRB;
+    public Button exit;
 
     @FXML
     private TextField field;
@@ -43,10 +41,17 @@ public class MenuController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.getScene().setRoot(fxmlloader.load());
     }
-
-    public void switchToGame()
-    {
-
+    @FXML
+    public void switchToGame(ActionEvent event) throws IOException {
+        FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Game/GameView.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlloader.load());
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void exitProgram(ActionEvent e){
+        System.exit(0);
     }
     @FXML
     private Label welcomeText;
