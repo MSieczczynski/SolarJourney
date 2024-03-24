@@ -60,10 +60,4 @@ public class MenuController {
         name = field.getText();
         System.out.println(name);
     }
-
-    @FXML
-    protected void onHelloButtonClick()
-    {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 }

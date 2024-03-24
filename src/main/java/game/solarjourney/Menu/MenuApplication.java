@@ -17,7 +17,7 @@ public class MenuApplication extends Application {
         Scene scene = new Scene(fxmlloader.load());
         stage.setTitle("Solar Journey");
         stage.setScene(scene);
-        stage.setFullScreen(false);
+        stage.setFullScreen(true);
         stage.show();
     }
 
