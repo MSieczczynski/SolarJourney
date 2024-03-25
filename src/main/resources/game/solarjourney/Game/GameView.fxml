@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,13 +13,13 @@
    <children>
       <AnchorPane prefHeight="58.0" prefWidth="600.0">
          <children>
-            <ProgressBar fx:id="fuelLevel" layoutX="67.0" layoutY="18.0" prefHeight="22.0" prefWidth="102.0" progress="1.0" />
             <Text fill="#110c9f" fontSmoothingType="LCD" layoutX="22.0" layoutY="33.0" strokeType="OUTSIDE" text="Fuel" textAlignment="CENTER" />
-            <Text fill="#3523aa" layoutX="203.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocity" />
+            <Text fill="#3523aa" layoutX="146.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocity" />
             <Text fill="#081488" layoutX="300.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is it too fast to land?" />
             <RadioButton fx:id="yesRB" layoutX="432.0" layoutY="16.0" mnemonicParsing="false" onAction="#setRB" prefHeight="22.0" prefWidth="58.0" selected="true" text="Yes" textFill="#070000" />
-            <Text fx:id="fieldVelocity" layoutX="257.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="58.0" />
             <Button fx:id="menu" layoutX="516.0" layoutY="14.0" mnemonicParsing="false" onAction="#toMenu" text="Menu" />
+            <Label fx:id="fuelLabel" layoutX="78.0" layoutY="20.0" onMouseClicked="#setFuelLevel" prefHeight="18.0" prefWidth="47.0" text="1" />
+            <Label fx:id="velocityLabel" layoutX="220.0" layoutY="21.0" onMouseClicked="#setVelocity" prefHeight="18.0" prefWidth="47.0" text="0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane layoutY="58.0" prefHeight="342.0" prefWidth="600.0">

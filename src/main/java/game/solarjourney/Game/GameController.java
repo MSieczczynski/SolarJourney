@@ -20,20 +20,20 @@ import java.util.Objects;
 
 //Autor: Anna Kodym
 public class GameController{
-    private double fuel;
-    private double t;
-    private double v = 10.0;
+    protected static double fuel;
+    public static double t;
+    public static double v = 10.0;
     private int f; // do przekazywania czy prędkość jest dobra
     //public ButtonGroup group; znajdź jak to dla fx
-    public int l; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
+    public static int l; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
     @FXML
     public RadioButton yesRB;
     @FXML
     public Button menu;
     @FXML
-    public ProgressBar fuelLevel;
+    public Label fuelLabel;
     @FXML
-    public Text fieldVelocity;
+    public Label velocityLabel;
     @FXML
     public Circle rocket; //będzie udawało rakietę by pokazać że działa ruszanie
     public void fuelLevel() {
@@ -50,7 +50,7 @@ public class GameController{
     }
     @FXML
     public void setVelocity(){
-        fieldVelocity.setText(String.valueOf(v));
+        velocityLabel.setText(String.valueOf(v));
     }
     @FXML
     public void setRB(){
@@ -61,8 +61,11 @@ public class GameController{
     public void moveRocket(ActionEvent e){
         //do doczytania jak skoordynować z wciskanymi klawiszami
     }
+    @FXML
     public void setFuelLevel(){
         //do doczytania jak ustawić poziom na progress bar
+        fuel = 0.5;
+        fuelLabel.setText(String.valueOf(fuel));
     }
     @FXML
     public void toMenu(ActionEvent e)throws IOException{
@@ -70,6 +73,7 @@ public class GameController{
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlloader.load());
         stage.setScene(scene);
+        stage.setResizable(true);
         stage.setFullScreen(false);
         stage.show();
     }
