@@ -24,10 +24,7 @@ public class GameController{
     public static double t;
     public static double v = 10.0;
     private int f; // do przekazywania czy prędkość jest dobra
-    //public ButtonGroup group; znajdź jak to dla fx
     public static int l; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
-    @FXML
-    public RadioButton yesRB;
     @FXML
     public Button menu;
     @FXML
@@ -36,13 +33,15 @@ public class GameController{
     public Label velocityLabel;
     @FXML
     public Circle rocket; //będzie udawało rakietę by pokazać że działa ruszanie
+    @FXML
+    public Circle velocityControl;
     public void fuelLevel() {
         t = t + 0.001;
         fuel = fuel - (v*t*l)/(100); //ile zostało paliwa, liczę w procentach stąd dzielenie na 100
     }
     public void velocityLevel(){
         int w = 100/l;
-        if( v > w){ // 300 to przypadkowa wartość do ustalenia potem
+        if(v > w){ // 300 to przypadkowa wartość do ustalenia potem
             f = 2;
         }else{
             f = 1;
@@ -54,8 +53,9 @@ public class GameController{
     }
     @FXML
     public void setRB(){
-        if(f == 1) {
-            yesRB.selectedProperty();
+        velocityControl.setVisible(false);
+        if(f == 1){
+            velocityControl.setVisible(true);
         }
     }
     public void moveRocket(ActionEvent e){
