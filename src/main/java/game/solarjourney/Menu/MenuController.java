@@ -5,11 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -45,25 +42,16 @@ public class MenuController {
     public void switchToGame(ActionEvent event) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Game/GameView.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlloader.load());
-        stage.setScene(scene);
-        stage.show();
+        stage.getScene().setRoot(fxmlloader.load());
     }
     @FXML
     public void exitProgram(ActionEvent e){
         System.exit(0);
     }
     @FXML
-    private Label welcomeText;
-    @FXML
     public void setName(ActionEvent e) throws IOException{
         name = field.getText();
         System.out.println(name);
     }
 
-    @FXML
-    protected void onHelloButtonClick()
-    {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 }
