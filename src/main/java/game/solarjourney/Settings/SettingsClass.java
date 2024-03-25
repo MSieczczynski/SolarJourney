@@ -9,5 +9,5 @@ public class SettingsClass
     String rightText;
     String takeOffText;
     int throttleSensivityValue;
-    int turnSensivityValue;
+    int rotateSensivityValue;
 }
