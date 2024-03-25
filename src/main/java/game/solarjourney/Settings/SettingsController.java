@@ -27,7 +27,7 @@ public class SettingsController {
         Scene scene = new Scene(fxmlloader.load());
         stage.setTitle("Settings");
         stage.setScene(scene);
-        stage.setFullScreen(true);
+        stage.setFullScreen(false);
         stage.show();
     }
 
@@ -92,17 +92,17 @@ public class SettingsController {
     @FXML
     private Slider rotateSensitivity;
 
-    SettingsClass SettingsC;
+    SettingsClass Settings;
     @FXML
     protected void Save(ActionEvent event)
     {
-        SettingsC.difficultyText = difficulty.getText();
-        SettingsC.upText = upButton.getText();
-        SettingsC.downText = downButton.getText();
-        SettingsC.leftText = leftButton.getText();
-        SettingsC.rightText = rightButton.getText();
-        SettingsC.takeOffText = takeOffButton.getText();
-        SettingsC.throttleSensivityValue = (int)throttleSensitivity.getValue();
-        SettingsC.rotateSensivityValue = (int)rotateSensitivity.getValue();
+        Settings.difficultyText = difficulty.getText();
+        Settings.upText = upButton.getText();
+        Settings.downText = downButton.getText();
+        Settings.leftText = leftButton.getText();
+        Settings.rightText = rightButton.getText();
+        Settings.takeOffText = takeOffButton.getText();
+        Settings.throttleSensivityValue = (int)throttleSensitivity.getValue();
+        Settings.rotateSensivityValue = (int)rotateSensitivity.getValue();
     }
 }
