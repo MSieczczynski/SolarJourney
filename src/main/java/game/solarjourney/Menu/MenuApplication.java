@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+//Autor Anna Kodym
 public class MenuApplication extends Application {
 
     @Override

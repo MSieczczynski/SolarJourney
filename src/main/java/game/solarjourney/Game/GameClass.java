@@ -13,7 +13,7 @@ import javafx.application.*;
 import java.io.IOException;
 import java.net.URL;
 import java.lang.ModuleLayer.Controller;
-
+//Autor Anna Kodym
 public class GameClass extends  Application{
     public static String name;
     @Override

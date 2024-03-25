@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static game.solarjourney.Game.GameClass.name;
-
+//Autor: Anna Kodym (poza funkcją opisaną)
 public class MenuController {
 
     private Stage stage;
