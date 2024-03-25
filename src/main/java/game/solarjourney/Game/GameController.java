@@ -22,6 +22,8 @@ import java.util.Objects;
 public class GameController{
     protected static double fuel;
     public static double t;
+    private double x;
+    private double y;
     public static double v = 10.0;
     private int f; // do przekazywania czy prędkość jest dobra
     public static int l; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
@@ -33,8 +35,9 @@ public class GameController{
     public Label velocityLabel;
     @FXML
     public Label velocityControlLabel;
-    @FXML
-    public Circle rocket; //będzie udawało rakietę by pokazać że działa ruszanie
+    //@FXML
+    //public Circle rocket; //będzie udawało rakietę by pokazać że działa ruszanie
+
     @FXML
     public Circle velocityControl;
     public void fuelLevel() {
@@ -79,4 +82,23 @@ public class GameController{
         stage.setFullScreen(false);
         stage.show();
     }
+    /*
+    public void turnLeft(ActionEvent event){
+        System.out.println("left");
+        rocket.setCenterX(x-=10);
+    }
+    public void turnRight(){
+        System.out.println("rigth");
+        rocket.setCenterY(y+=10);
+    }
+    public void throttleUp(){
+        System.out.println("up");
+        v = v + 10;
+    }
+    public void throttleDown(){
+        System.out.println("down");
+        v = v - 10;
+    }
+
+     */
 }

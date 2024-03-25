@@ -106,4 +106,3 @@ public class SettingsController {
         SettingsC.turnSensivityValue = (int)turnSensitivity.getValue();
     }
 }
-
