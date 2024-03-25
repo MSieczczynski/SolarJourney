@@ -90,7 +90,7 @@ public class SettingsController {
     private Slider throttleSensitivity;
 
     @FXML
-    private Slider turnSensitivity;
+    private Slider rotateSensitivity;
 
     SettingsClass SettingsC;
     @FXML
@@ -103,6 +103,6 @@ public class SettingsController {
         SettingsC.rightText = rightButton.getText();
         SettingsC.takeOffText = takeOffButton.getText();
         SettingsC.throttleSensivityValue = (int)throttleSensitivity.getValue();
-        SettingsC.turnSensivityValue = (int)turnSensitivity.getValue();
+        SettingsC.rotateSensivityValue = (int)rotateSensitivity.getValue();
     }
 }
