@@ -32,6 +32,8 @@ public class GameController{
     @FXML
     public Label velocityLabel;
     @FXML
+    public Label velocityControlLabel;
+    @FXML
     public Circle rocket; //będzie udawało rakietę by pokazać że działa ruszanie
     @FXML
     public Circle velocityControl;
