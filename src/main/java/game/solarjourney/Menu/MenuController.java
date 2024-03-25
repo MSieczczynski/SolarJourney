@@ -47,15 +47,12 @@ public class MenuController {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlloader.load());
         stage.setScene(scene);
-        stage.setResizable(true);
-        stage.setFullScreen(false);
         stage.show();
     }
     @FXML
     public void exitProgram(ActionEvent e){
         System.exit(0);
     }
-    /*
     @FXML
     private Label welcomeText;
     @FXML
@@ -69,6 +66,4 @@ public class MenuController {
     {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
-
-     */
 }

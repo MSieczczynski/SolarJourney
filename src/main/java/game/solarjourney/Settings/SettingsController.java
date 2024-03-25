@@ -30,6 +30,7 @@ public class SettingsController {
         //Parent root = FXMLLoader.load(getClass().getResource("MenuView.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlloader.load());
+        stage.setTitle("Settings");
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.show();
