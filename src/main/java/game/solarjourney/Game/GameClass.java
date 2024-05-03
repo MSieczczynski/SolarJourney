@@ -19,25 +19,25 @@ public class GameClass extends  Application{
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GameView.fxml"));
-        Parent root = loader.load();///
+        Parent root = loader.load();
 
-        //Controller GameController = loader.getController();
+        //Controller GameController = loader.getController(); na potem
         Scene scene = new Scene(root);
-/*
+/* na potem
         scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
             @Override
             public void handle(KeyEvent keyEvent) {
                 switch(keyEvent.getCode()){
-                    case LEFT:
+                    case D:
                         GameController.turnLeft();
                         break;
-                    case RIGHT:
+                    case A:
                         GameController.turnRight();
                         break;
-                    case UP:
+                    case W:
                         GameController.throttleUp();
                         break;
-                    case DOWN:
+                    case S:
                         GameController.throttleDown();
                         break;
                     default:

@@ -36,7 +36,7 @@ public class GameController{
     @FXML
     public Label velocityControlLabel;
     //@FXML
-    //public Circle rocket; //będzie udawało rakietę by pokazać że działa ruszanie
+    //public Circle rocket; //na potem
 
     @FXML
     public Circle velocityControl;
@@ -45,8 +45,8 @@ public class GameController{
         fuel = fuel - (v*t*l)/(100); //ile zostało paliwa, liczę w procentach stąd dzielenie na 100
     }
     public void velocityLevel(){
-        int w = 100/l;
-        if(v > w){ // 300 to przypadkowa wartość do ustalenia potem
+        int w = 100/l; //póki co wartość przypadkowa do ustalenia
+        if(v > w){
             f = 2;
         }else{
             f = 1;
@@ -64,11 +64,10 @@ public class GameController{
         }
     }
     public void moveRocket(ActionEvent e){
-        //do doczytania jak skoordynować z wciskanymi klawiszami
+        //do ruchu rakiety
     }
     @FXML
     public void setFuelLevel(){
-        //do doczytania jak ustawić poziom na progress bar
         fuel = 0.5;
         fuelLabel.setText(String.valueOf(fuel));
     }
@@ -83,6 +82,8 @@ public class GameController{
         stage.show();
     }
     /*
+    na potem
+
     public void turnLeft(ActionEvent event){
         System.out.println("left");
         rocket.setCenterX(x-=10);

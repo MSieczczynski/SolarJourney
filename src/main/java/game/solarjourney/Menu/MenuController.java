@@ -17,7 +17,6 @@ import static game.solarjourney.Game.GameClass.name;
 public class MenuController {
 
     private Stage stage;
-    private Scene scene;
     @FXML
     public Button exit;
 
