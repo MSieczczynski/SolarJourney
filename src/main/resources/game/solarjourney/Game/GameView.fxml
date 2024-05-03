@@ -16,8 +16,8 @@
             <Text fill="#3523aa" layoutX="146.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocity" />
             <Text fill="#081488" layoutX="953.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Is it too fast to land?" />
             <Button fx:id="menu" layoutX="1212.0" layoutY="14.0" mnemonicParsing="false" onAction="#toMenu" text="Menu" />
-            <Label fx:id="fuelLabel" layoutX="78.0" layoutY="20.0" onMouseClicked="#setFuelLevel" prefHeight="18.0" prefWidth="47.0" text="1" />
-            <Label fx:id="velocityLabel" layoutX="220.0" layoutY="21.0" onMouseClicked="#setVelocity" prefHeight="18.0" prefWidth="47.0" text="0" textAlignment="CENTER" />
+            <Label fx:id="fuelLabel" layoutX="78.0" layoutY="20.0" prefHeight="18.0" prefWidth="47.0" text="1" />
+            <Label fx:id="velocityLabel" layoutX="220.0" layoutY="21.0" prefHeight="18.0" prefWidth="47.0" text="0" textAlignment="CENTER" />
             <Label fx:id="velocityControlLabel" layoutX="1109.0" layoutY="14.0" prefHeight="31.0" prefWidth="65.0" text="yes" textAlignment="RIGHT">
                <graphic>
                   <Circle fx:id="velocityControl" fill="#ff1f1f" onMouseClicked="#setRB" radius="9.0" stroke="BLACK" strokeType="INSIDE" />

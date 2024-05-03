@@ -47,10 +47,10 @@ public class MenuController {
     public void exitProgram(ActionEvent e){
         System.exit(0);
     }
-    @FXML
-    public void setName(ActionEvent e) throws IOException{
-        name = field.getText();
-        System.out.println(name);
-    }
+//    @FXML
+//    public void setName(ActionEvent e) throws IOException{
+//        name = field.getText();
+//        System.out.println(name);
+//    }
 
 }

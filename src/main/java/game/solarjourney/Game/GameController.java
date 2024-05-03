@@ -24,13 +24,12 @@ import static java.awt.Event.*;
 
 //Autor: Anna Kodym
 public class GameController{
-    protected static double fuel;
-    public static double t;
-    private double x;
-    private double y;
+    protected static double fuel = 100;
+    public double t;
+    public double start;
     public static double v = 10.0;
     private int f; // do przekazywania czy prędkość jest dobra
-    public static int l; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
+    public static int l = 1; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
     @FXML
     public Button menu;
     @FXML
@@ -40,12 +39,14 @@ public class GameController{
     @FXML
     public Label velocityControlLabel;
     @FXML
-    public Circle rocket; //na potem
-
+    public Circle rocket;
     @FXML
     public Circle velocityControl;
+    public void setStart(){
+        start = GameClass.start;
+    }
     public void fuelLevel() {
-        t = t + 0.001;
+        t = System.currentTimeMillis() - this.start;
         fuel = fuel - (v*t*l)/(100); //ile zostało paliwa, liczę w procentach stąd dzielenie na 100
     }
     public void velocityLevel(){
@@ -56,7 +57,6 @@ public class GameController{
             f = 1;
         }
     }
-
     @FXML
     public void setVelocity(){
         velocityLabel.setText(String.valueOf(v));
@@ -68,13 +68,9 @@ public class GameController{
             velocityControl.setVisible(true);
         }
     }
-    public void moveRocket(ActionEvent e){
-        //do ruchu rakiety
-    }
     @FXML
     public void setFuelLevel(){
-        fuel = 0.5;
-        fuelLabel.setText(String.valueOf(fuel));
+        fuelLabel.setText(String.valueOf(fuel+"%"));
     }
     @FXML
     public void toMenu(ActionEvent e)throws IOException{
@@ -86,13 +82,6 @@ public class GameController{
         stage.setFullScreen(false);
         stage.show();
     }
-
-    //@Override
-    public void run() {
-
-    }
-
-
     public void turnLeft(){
         //System.out.println("left");
         rocket.setTranslateX(rocket.getTranslateX() - 10);
@@ -109,6 +98,4 @@ public class GameController{
         //System.out.println("down");
         v = v - 10;
     }
-
-
 }

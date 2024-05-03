@@ -1,29 +1,38 @@
 package game.solarjourney.Game;
 
 import javafx.application.Application;
-import javafx.concurrent.Task;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.application.*;
-
-import java.awt.*;
-import java.awt.event.KeyListener;
 import java.io.IOException;
-import java.net.URL;
-import java.lang.ModuleLayer.Controller;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
-import static java.awt.Event.*;
-import static java.awt.Event.RIGHT;
-import static javafx.scene.input.KeyCode.W;
-
-//Autor: Anna Kodym
+class Aktualizacja implements Runnable{
+    @Override
+    public void run() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GameView.fxml"));
+        GameController controller = loader.getController();
+        controller.fuelLevel();
+        controller.velocityLevel();
+    }
+}
+class Odmalowanie implements Runnable{
+    @Override
+    public void run() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GameView.fxml"));
+        GameController controller = loader.getController();
+        controller.setRB();
+        controller.setFuelLevel();
+        controller.setVelocity();
+    }
+}
 public class GameClass extends Application{
+    public static double start;
     public static String name;
     @Override
     public void start(Stage stage) throws IOException {
@@ -31,7 +40,6 @@ public class GameClass extends Application{
         Parent root = loader.load();
         Scene scene = new Scene(root);
         GameController controller = loader.getController();
-        //z yt zrobione
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -49,67 +57,24 @@ public class GameClass extends Application{
                     case D:
                         controller.turnRight();
                         break;
+                    case L:
+                        start = System.currentTimeMillis();
+                        controller.setStart();
+                        ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+                        executor.scheduleAtFixedRate(new Aktualizacja(), 0, 1, TimeUnit.MILLISECONDS);
+                        executor.scheduleAtFixedRate(new Odmalowanie(), 0, 1, TimeUnit.MILLISECONDS);
                     default:
                         break;
                 }
             }
         });
-
-
-/*
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>(){
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                switch(keyEvent.getCode()){
-                    case D:
-                        GameController.turnLeft();
-                        break;
-                    case A:
-                        GameController.turnRight();
-                        break;
-                    case W:
-                        GameController.throttleUp();
-                        break;
-                    case S:
-                        GameController.throttleDown();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-
-        scene.setOnKeyPressed(event -> {
-            switch (event.getCode()) {
-                case W:
-                    moveCircle(0, -10); // Góra
-                    break;
-                case S:
-                    moveCircle(0, 10); // Dół
-                    break;
-                case A:
-                    moveCircle(-10, 0); // Lewo
-                    break;
-                case D:
-                    moveCircle(10, 0); // Prawo
-                    break;
-                default:
-                    break;
-            }
-        });
-
- */
         stage.setTitle("Game");
         stage.setScene(scene);
         stage.setResizable(true);
         stage.setFullScreen(false);
         stage.show();
-
     }
     public static void main(String[] args){
         launch();
     }
-
-
 }
