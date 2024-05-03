@@ -10,13 +10,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.awt.event.KeyListener;
 
 
 import java.io.IOException;
 import java.util.Objects;
+
+import static java.awt.Event.*;
 
 //Autor: Anna Kodym
 public class GameController{
@@ -35,8 +39,8 @@ public class GameController{
     public Label velocityLabel;
     @FXML
     public Label velocityControlLabel;
-    //@FXML
-    //public Circle rocket; //na potem
+    @FXML
+    public Circle rocket; //na potem
 
     @FXML
     public Circle velocityControl;
@@ -52,6 +56,7 @@ public class GameController{
             f = 1;
         }
     }
+
     @FXML
     public void setVelocity(){
         velocityLabel.setText(String.valueOf(v));
@@ -81,25 +86,29 @@ public class GameController{
         stage.setFullScreen(false);
         stage.show();
     }
-    /*
-    na potem
 
-    public void turnLeft(ActionEvent event){
-        System.out.println("left");
-        rocket.setCenterX(x-=10);
+    //@Override
+    public void run() {
+
+    }
+
+
+    public void turnLeft(){
+        //System.out.println("left");
+        rocket.setTranslateX(rocket.getTranslateX() - 10);
     }
     public void turnRight(){
-        System.out.println("rigth");
-        rocket.setCenterY(y+=10);
+        //System.out.println("rigth");
+        rocket.setTranslateX(rocket.getTranslateX() + 10);
     }
     public void throttleUp(){
-        System.out.println("up");
+        //System.out.println("up");
         v = v + 10;
     }
     public void throttleDown(){
-        System.out.println("down");
+        //System.out.println("down");
         v = v - 10;
     }
 
-     */
+
 }

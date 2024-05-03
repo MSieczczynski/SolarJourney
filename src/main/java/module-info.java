@@ -10,6 +10,7 @@ module game.solarjourney {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     exports game.solarjourney.Settings;
     exports game.solarjourney.Menu;
