@@ -20,10 +20,10 @@
                         <Font size="30.0" />
                      </font></Label>
                   <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Throttle down" />
-                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Throttle sensivity" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Throttle sensitivity" />
                   <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Rotate left" />
                   <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Rotate right" />
-                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Rotate sensivity" />
+                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Rotate sensitivity" />
                   <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Take off" />
                </children></VBox>
             <VBox alignment="TOP_CENTER" prefHeight="550.0" prefWidth="470.0" stylesheets="@settings.css">

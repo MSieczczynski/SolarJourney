@@ -1,5 +1,7 @@
 package game.solarjourney.Settings;
 
+//Autor: Michał Sieczczyński
+
 public class SettingsClass
 {
     String difficultyText;
