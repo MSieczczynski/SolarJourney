@@ -1,28 +1,21 @@
 package game.solarjourney.Menu;
 
-import game.solarjourney.Game.GameClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-import static game.solarjourney.Game.GameClass.name;
 //Autor: Anna Kodym (poza funkcją opisaną)
 public class MenuController {
-
     private Stage stage;
     @FXML
     public Button exit;
-
     @FXML
     private TextField field;
-
     @FXML
     public void switchToSettings(ActionEvent event) throws IOException {
         //Autor:Michał Sieczczyński
@@ -47,10 +40,4 @@ public class MenuController {
     public void exitProgram(ActionEvent e){
         System.exit(0);
     }
-//    @FXML
-//    public void setName(ActionEvent e) throws IOException{
-//        name = field.getText();
-//        System.out.println(name);
-//    }
-
 }

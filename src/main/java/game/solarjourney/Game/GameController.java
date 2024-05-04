@@ -1,26 +1,18 @@
 package game.solarjourney.Game;
 
 import game.solarjourney.Menu.MenuController;
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.awt.event.KeyListener;
-
-
 import java.io.IOException;
-import java.util.Objects;
-
-import static java.awt.Event.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 //Autor: Anna Kodym
 public class GameController{
@@ -83,19 +75,52 @@ public class GameController{
         stage.show();
     }
     public void turnLeft(){
-        //System.out.println("left");
-        rocket.setTranslateX(rocket.getTranslateX() - 10);
+        if(rocket.getTranslateX() > -250){
+            rocket.setTranslateX(rocket.getTranslateX() - 10);
+        }
+        else{
+            rocket.setTranslateX(rocket.getTranslateX());
+        }
     }
     public void turnRight(){
-        //System.out.println("rigth");
-        rocket.setTranslateX(rocket.getTranslateX() + 10);
+        if(rocket.getTranslateX() < 1010){
+            rocket.setTranslateX(rocket.getTranslateX() + 10);
+        }
+        else{
+            rocket.setTranslateX(rocket.getTranslateX());
+        }
     }
+    //tutaj do wymiany na mechanizm że prędkość odpowiada za ruch góra dół
+    public void goUp(){
+        if(rocket.getTranslateY() > -450 && rocket.getTranslateY() < 170){
+            rocket.setTranslateY(rocket.getTranslateY() - 1*v);
+        }
+        else{
+            rocket.setTranslateY(rocket.getTranslateY());
+        }
+    }
+//    public void goDown(){
+//        System.out.println(rocket.getTranslateY());
+//        if(rocket.getTranslateY() < 170){
+//            rocket.setTranslateY(rocket.getTranslateY() + v);
+//        }
+//        else{
+//            rocket.setTranslateY(rocket.getTranslateY());
+//        }
+//    }
     public void throttleUp(){
-        //System.out.println("up");
         v = v + 10;
     }
     public void throttleDown(){
-        //System.out.println("down");
         v = v - 10;
     }
+//    public void gameRun() {//throws InterruptedException {
+//        ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+//        System.out.println("gameRun");
+//        executor.scheduleAtFixedRate(new Aktualizacja(), 0, 10, TimeUnit.SECONDS);
+//        executor.scheduleAtFixedRate(new Odmalowanie(), 2, 10, TimeUnit.SECONDS);
+//        System.out.println("za executorami");
+//        executor.shutdown();
+//    }
+
 }

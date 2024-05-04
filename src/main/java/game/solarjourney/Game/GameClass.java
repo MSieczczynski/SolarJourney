@@ -1,6 +1,7 @@
 package game.solarjourney.Game;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,37 +14,48 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 class Aktualizacja implements Runnable{
+    private GameController controller;
+    public Aktualizacja(GameController controller){
+        this.controller = controller;
+    }
     @Override
     public void run() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GameView.fxml"));
-        GameController controller = loader.getController();
-        controller.fuelLevel();
-        controller.velocityLevel();
+        Platform.runLater(() -> {
+            controller.goUp();
+            controller.fuelLevel();
+            controller.velocityLevel();
+        });
     }
 }
 class Odmalowanie implements Runnable{
+    private GameController controller;
+    public Odmalowanie(GameController controller){
+        this.controller = controller;
+    }
     @Override
     public void run() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GameView.fxml"));
-        GameController controller = loader.getController();
-        controller.setRB();
-        controller.setFuelLevel();
-        controller.setVelocity();
+        Platform.runLater(() -> {
+            controller.setRB();
+            controller.setFuelLevel();
+            controller.setVelocity();
+        });
     }
 }
 public class GameClass extends Application{
     public static double start;
-    public static String name;
+    public static double sceneWidth;
+    public double sceneHeight;
+    private ScheduledExecutorService executor;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GameView.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
         GameController controller = loader.getController();
+        Scene scene = new Scene(root);
+
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                //System.out.println(event.getCode());
                 switch(event.getCode()){
                     case W:
                         controller.throttleUp();
@@ -58,11 +70,19 @@ public class GameClass extends Application{
                         controller.turnRight();
                         break;
                     case L:
+                        System.out.println("wcisniete L");
                         start = System.currentTimeMillis();
                         controller.setStart();
-                        ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-                        executor.scheduleAtFixedRate(new Aktualizacja(), 0, 1, TimeUnit.MILLISECONDS);
-                        executor.scheduleAtFixedRate(new Odmalowanie(), 0, 1, TimeUnit.MILLISECONDS);
+                        executor = Executors.newScheduledThreadPool(2);
+                        executor.scheduleAtFixedRate(new Aktualizacja(controller), 0, 1, TimeUnit.SECONDS);
+                        executor.scheduleAtFixedRate(new Odmalowanie(controller), 500, 1000, TimeUnit.MILLISECONDS);
+                        break;
+                    case ESCAPE:
+                        System.out.println("Klawisz Escape został naciśnięty");
+                        if (executor != null && !executor.isShutdown()) {
+                            executor.shutdown();
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -73,6 +93,7 @@ public class GameClass extends Application{
         stage.setResizable(true);
         stage.setFullScreen(false);
         stage.show();
+
     }
     public static void main(String[] args){
         launch();

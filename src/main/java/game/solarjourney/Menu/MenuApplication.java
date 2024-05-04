@@ -8,7 +8,6 @@ import java.io.IOException;
 
 //Autor: Anna Kodym
 public class MenuApplication extends Application {
-
     @Override
     public void start(Stage stage) throws IOException
     {
@@ -19,7 +18,6 @@ public class MenuApplication extends Application {
         stage.setFullScreen(false);
         stage.show();
     }
-
     public static void main(String[] args) {
         launch(args);
     }
