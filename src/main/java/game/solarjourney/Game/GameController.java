@@ -39,11 +39,11 @@ public class GameController{
     }
     public void fuelLevel() {
         t = System.currentTimeMillis() - this.start;
-        fuel = fuel - (v*t*l)/(100); //ile zostało paliwa, liczę w procentach stąd dzielenie na 100
+        fuel = fuel - (Math.abs(v)*t*l)/(100000); //ile zostało paliwa, liczę w procentach stąd dzielenie na 100
     }
     public void velocityLevel(){
-        int w = 100/l; //póki co wartość przypadkowa do ustalenia
-        if(v > w){
+        //int w = 10/l; //póki co wartość przypadkowa do ustalenia
+        if(v <= 10 && v >= -10){
             f = 2;
         }else{
             f = 1;
@@ -83,44 +83,25 @@ public class GameController{
         }
     }
     public void turnRight(){
-        if(rocket.getTranslateX() < 1010){
+        if(rocket.getTranslateX() + 10 < 1010){
             rocket.setTranslateX(rocket.getTranslateX() + 10);
         }
         else{
             rocket.setTranslateX(rocket.getTranslateX());
         }
     }
-    //tutaj do wymiany na mechanizm że prędkość odpowiada za ruch góra dół
     public void goUp(){
-        if(rocket.getTranslateY() > -450 && rocket.getTranslateY() < 170){
+        if(rocket.getTranslateY() - 1*v > -450 && rocket.getTranslateY() - 1*v < 170){
             rocket.setTranslateY(rocket.getTranslateY() - 1*v);
         }
         else{
             rocket.setTranslateY(rocket.getTranslateY());
         }
     }
-//    public void goDown(){
-//        System.out.println(rocket.getTranslateY());
-//        if(rocket.getTranslateY() < 170){
-//            rocket.setTranslateY(rocket.getTranslateY() + v);
-//        }
-//        else{
-//            rocket.setTranslateY(rocket.getTranslateY());
-//        }
-//    }
     public void throttleUp(){
-        v = v + 10;
+        v = v + 5;
     }
     public void throttleDown(){
-        v = v - 10;
+        v = v - 5;
     }
-//    public void gameRun() {//throws InterruptedException {
-//        ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
-//        System.out.println("gameRun");
-//        executor.scheduleAtFixedRate(new Aktualizacja(), 0, 10, TimeUnit.SECONDS);
-//        executor.scheduleAtFixedRate(new Odmalowanie(), 2, 10, TimeUnit.SECONDS);
-//        System.out.println("za executorami");
-//        executor.shutdown();
-//    }
-
 }
