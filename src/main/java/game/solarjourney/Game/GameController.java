@@ -46,7 +46,7 @@ public class GameController{
             f = 1;
         }
     }
-    //control check
+    //control check d
     @FXML
     public void setVelocity(){
         velocityLabel.setText(String.valueOf(v));

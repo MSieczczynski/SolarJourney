@@ -1,5 +1,5 @@
 package game.solarjourney.Game;
-//autor: Anna Kodym
+//autor: Anna Kodym v
 public class planet {
     public int radius;
     public double x,y;
