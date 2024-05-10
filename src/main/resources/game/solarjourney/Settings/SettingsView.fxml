@@ -15,27 +15,14 @@
             <VBox maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="670.0" stylesheets="@settings.css">
                <children>
                   <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Difficulty" />
-                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" stylesheets="@settings.css" text="Throttle up">
-                     <font>
-                        <Font size="30.0" />
-                     </font></Label>
-                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Throttle down" />
                   <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Throttle sensitivity" />
-                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Rotate left" />
-                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="140.0" text="Rotate right" />
                   <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Rotate sensitivity" />
-                  <Label maxHeight="-Infinity" maxWidth="1.7976931348623157E308" text="Take off" />
                </children></VBox>
             <VBox alignment="TOP_CENTER" prefHeight="550.0" prefWidth="470.0" stylesheets="@settings.css">
                <children>
                   <Button fx:id="difficulty" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchDifficulty" text="Normal" />
-                  <Button fx:id="upButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" prefWidth="60.0" text="w" />
-                  <Button fx:id="downButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" text="s" />
                   <Slider fx:id="throttleSensivity" max="200.0" maxWidth="1.7976931348623157E308" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
-                  <Button fx:id="leftButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" text="a" />
-                  <Button fx:id="rightButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#keyBind" prefHeight="20.0" text="d" />
                   <Slider fx:id="turnSensivity" max="200.0" maxWidth="1.7976931348623157E308" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
-                  <Button fx:id="takeOffButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#keyBind" text="l" />
                </children>
             </VBox>
          </children>
@@ -45,7 +32,7 @@
             <Font name="Californian FB" size="96.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER" layoutX="475.0" layoutY="830.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
+      <HBox alignment="CENTER" layoutX="475.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
          <children>
             <Button cache="true" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="50.0" prefWidth="200.0" text="Back to menu" HBox.hgrow="NEVER">
                <font>

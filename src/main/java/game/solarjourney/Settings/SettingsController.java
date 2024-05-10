@@ -12,7 +12,6 @@ import javafx.scene.control.Slider;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
-import game.solarjourney.Settings.SettingsClass;
 
 //Autor: Michał Sieczczyński
 
@@ -69,40 +68,17 @@ public class SettingsController {
             difficulty.setText("Easy");
     }
 
-
-
-    @FXML
-    private Button upButton;
-
-    @FXML
-    private Button downButton;
-
-    @FXML
-    private Button leftButton;
-
-    @FXML
-    private Button rightButton;
-
-    @FXML
-    private Button takeOffButton;
-
     @FXML
     private Slider throttleSensitivity;
 
     @FXML
     private Slider rotateSensitivity;
 
-    SettingsClass Settings;
     @FXML
     protected void Save(ActionEvent event)
     {
-        Settings.difficultyText = difficulty.getText();
-        Settings.upText = upButton.getText();
-        Settings.downText = downButton.getText();
-        Settings.leftText = leftButton.getText();
-        Settings.rightText = rightButton.getText();
-        Settings.takeOffText = takeOffButton.getText();
-        Settings.throttleSensivityValue = (int)throttleSensitivity.getValue();
-        Settings.rotateSensivityValue = (int)rotateSensitivity.getValue();
+        SettingsClass.difficultyText = difficulty.getText();
+        SettingsClass.throttleSensivityValue = (int)throttleSensitivity.getValue();
+        SettingsClass.rotateSensivityValue = (int)rotateSensitivity.getValue();
     }
 }
