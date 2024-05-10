@@ -1,5 +1,5 @@
 package game.solarjourney.Game;
-
+//Autor: Anna Kodym
 public class rocket {
     public int radius;
     public double x,y;
@@ -8,3 +8,4 @@ public class rocket {
         return distance <= radius + planet.getRadius();
     }
 }
+//control check

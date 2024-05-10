@@ -1,5 +1,5 @@
 package game.solarjourney.Game;
-
+//Autor: Anna Kodym
 public class Collision {
     rocket rocket;
     planet planet;
