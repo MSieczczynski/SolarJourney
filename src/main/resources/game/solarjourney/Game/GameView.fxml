@@ -32,7 +32,7 @@
                   <Image url="@IMG_2636.jpeg" />
                </image>
             </ImageView>
-            <Circle fx:id="rocket" fill="DODGERBLUE" layoutX="259.0" layoutY="485.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="rocket" fill="DODGERBLUE" layoutX="259.0" layoutY="485.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </AnchorPane>
    </children>
