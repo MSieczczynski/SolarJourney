@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.solarjourney.Game.GameController">
@@ -29,7 +30,7 @@
       </AnchorPane>
       <AnchorPane layoutY="60.0" prefHeight="660.0" prefWidth="1280.0" style="-fx-background-color: BLACK; -fx-view-order: 0;">
          <children>
-            <Circle fx:id="rocket" fill="DODGERBLUE" layoutX="265.0" layoutY="435.0" radius="33.0" stroke="BLACK" strokeType="INSIDE" style="-fx-view-order: -1;" />
+            <Rectangle fx:id="rocket" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="632.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" style="-fx-view-order: -1;" width="16.0" />
             <Circle fx:id="slonce" fill="#d7f52c" radius="100.0" strokeType="INSIDE" />
             <Circle fx:id="slonceSiatka" blendMode="ADD" radius="200.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
             <Circle fx:id="wenus" fill="DODGERBLUE" layoutX="400.0" layoutY="0.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
@@ -38,7 +39,7 @@
             <Circle fx:id="ziemiaSiatka" blendMode="ADD" layoutX="790.0" layoutY="0.0" radius="186.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
             <Circle fx:id="mars" fill="DODGERBLUE" layoutX="1090.0" layoutY="0.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="marsSiatka" blendMode="ADD" layoutX="1090.0" layoutY="0.0" radius="96.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
-            <Circle fx:id="jowisz" fill="DODGERBLUE" layoutX="1510.0" layoutY="0.0" radius="50.0" stroke="BLACK" strokeType="INSIDE"  />
+            <Circle fx:id="jowisz" fill="DODGERBLUE" layoutX="1510.0" layoutY="0.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="jowiszSiatka" blendMode="ADD" layoutX="1510.0" layoutY="0.0" radius="300.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
          </children>
       </AnchorPane>
