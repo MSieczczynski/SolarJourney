@@ -29,8 +29,56 @@ public class GameController{
     public Label velocityControlLabel;
     @FXML
     public Circle rocket;
+
     @FXML
     public Circle velocityControl;
+
+    @FXML
+    public Circle wenus;
+    @FXML
+    public Circle wenusSiatka;
+    @FXML
+    public Circle ziemia;
+    @FXML
+    public Circle ziemiaSiatka;
+    @FXML
+    public Circle mars;
+    @FXML
+    public Circle marsSiatka;
+    @FXML
+    public Circle jowisz;
+    @FXML
+    public Circle jowiszSiatka;
+
+    public double[] dt = {0,0,0,0};
+    public void planetPosition()
+    {
+        dt[0] += 0.0001;
+        dt[1] += 0.00007;
+        dt[2] += 0.00004;
+        dt[3] += 0.00001;
+
+        wenus.setLayoutX(430/(1+0.06772*Math.cos(dt[0]))*Math.cos(dt[0]));
+        wenus.setLayoutY(430/(1+0.06772*Math.cos(dt[0]))*Math.sin(dt[0]));
+        wenusSiatka.setLayoutX(430/(1+0.06772*Math.cos(dt[0]))*Math.cos(dt[0]));
+        wenusSiatka.setLayoutY(430/(1+0.06772*Math.cos(dt[0]))*Math.sin(dt[0]));
+
+        ziemia.setLayoutX(805/(1+0.0167086*Math.cos(dt[1]))*Math.cos(dt[1]));
+        ziemia.setLayoutY(805/(1+0.0167086*Math.cos(dt[1]))*Math.sin(dt[1]));
+        ziemiaSiatka.setLayoutX(805/(1+0.0167086*Math.cos(dt[1]))*Math.cos(dt[1]));
+        ziemiaSiatka.setLayoutY(805/(1+0.0167086*Math.cos(dt[1]))*Math.sin(dt[1]));
+
+        mars.setLayoutX(1190/(1+0.0934*Math.cos(dt[2]))*Math.cos(dt[2]));
+        mars.setLayoutY(1190/(1+0.0934*Math.cos(dt[2]))*Math.sin(dt[2]));
+        marsSiatka.setLayoutX(1190/(1+0.0934*Math.cos(dt[2]))*Math.cos(dt[2]));
+        marsSiatka.setLayoutY(1190/(1+0.0934*Math.cos(dt[2]))*Math.sin(dt[2]));
+
+        jowisz.setLayoutX(1585/(1+0.0489*Math.cos(dt[3]))*Math.cos(dt[3]));
+        jowisz.setLayoutY(1585/(1+0.0489*Math.cos(dt[3]))*Math.sin(dt[3]));
+        jowiszSiatka.setLayoutX(1585/(1+0.0489*Math.cos(dt[3]))*Math.cos(dt[3]));
+        jowiszSiatka.setLayoutY(1584/(1+0.0489*Math.cos(dt[3]))*Math.sin(dt[3]));
+    }
+
     public void setStart(){
         start = GameClass.start;
     }
