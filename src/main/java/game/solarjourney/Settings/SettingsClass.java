@@ -4,7 +4,7 @@ package game.solarjourney.Settings;
 
 public class SettingsClass
 {
-    public static String difficultyText;
+    public static double difficultyInt = 2;
     public static int throttleSensivityValue;
     public static int rotateSensivityValue;
 }

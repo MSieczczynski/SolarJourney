@@ -77,7 +77,12 @@ public class SettingsController {
     @FXML
     protected void Save(ActionEvent event)
     {
-        SettingsClass.difficultyText = difficulty.getText();
+        if(difficulty.getText().equals("Easy"))
+            SettingsClass.difficultyInt = 1;
+        if(difficulty.getText().equals("Normal"))
+            SettingsClass.difficultyInt = 2;
+        if(difficulty.getText().equals("Hard"))
+            SettingsClass.difficultyInt = 3;
         SettingsClass.throttleSensivityValue = (int)throttleSensitivity.getValue();
         SettingsClass.rotateSensivityValue = (int)rotateSensitivity.getValue();
     }

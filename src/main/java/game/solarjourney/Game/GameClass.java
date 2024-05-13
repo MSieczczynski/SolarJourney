@@ -13,54 +13,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-class Aktualizacja implements Runnable{
-    private GameController controller;
-    public Aktualizacja(GameController controller){
-        this.controller = controller;
-    }
-    @Override
-    public void run() {
-        Platform.runLater(() -> {
-            controller.goUp();
-            controller.fuelLevel();
-            controller.velocityLevel();
-        });
-    }
-}
-class Odmalowanie implements Runnable{
-    private GameController controller;
-    public Odmalowanie(GameController controller){
-        this.controller = controller;
-    }
-    @Override
-    public void run() {
-        Platform.runLater(() -> {
-            controller.setRB();
-            controller.setFuelLevel();
-            controller.setVelocity();
-        });
-    }
-}
-
-class PlanetControl implements Runnable
-{
-    private GameController controller;
-    public PlanetControl(GameController controller)
-    {
-        this.controller = controller;
-    }
-
-    @Override
-    public void run()
-    {
-        Platform.runLater(() -> {
-            controller.planetPosition();
-        });
-    }
-}
-
 public class GameClass extends Application{
-    public static double start;
+    //public static double start;
     public static double sceneWidth;
     public double sceneHeight;
     private ScheduledExecutorService executor;
@@ -86,15 +40,15 @@ public class GameClass extends Application{
                         controller.throttleDown();
                         break;
                     case A:
-                        controller.turnLeft();
+                        controller.rotateLeft();
                         break;
                     case D:
-                        controller.turnRight();
+                        controller.rotateRight();
                         break;
                     case L:
                         System.out.println("wcisniete L");
-                        start = System.currentTimeMillis();
-                        controller.setStart();
+                        //start = System.currentTimeMillis();
+                        //controller.setStart();
                         executor = Executors.newScheduledThreadPool(2);
                         executor.scheduleAtFixedRate(new Aktualizacja(controller), 0, 1, TimeUnit.MILLISECONDS);
                         executor.scheduleAtFixedRate(new Odmalowanie(controller), 1, 1, TimeUnit.MILLISECONDS);
@@ -111,7 +65,6 @@ public class GameClass extends Application{
                         System.out.println("Klawisz Escape został naciśnięty");
                         if (executor != null && !executor.isShutdown()) {
                             executor.shutdown();
-                            executor1.shutdown();
                         }
                         break;
                     default:
