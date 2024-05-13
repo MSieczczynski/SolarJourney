@@ -20,19 +20,16 @@ public class GameController{
     //public double start;
     public static double vx;
     public static double vy;
-    public static double v;
+    public static double v = 1;
     public static double vLanding;
     public static double rotationSpeed = 0;
     public double[] distance = new double[5];
     public double[]  gravitationalForce = new double[5];
 
-    //public static double v = 10;
     private int f; // do przekazywania czy prędkość jest dobra
-    //public static int l = 1; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
     public double t;
     public double start;
-    public static double v = 1.0;
-    public int f; // do przekazywania czy prędkość jest dobra
+    //public static double v = 1.0;
     public static int l = 1; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
     @FXML
     public Button menu;
@@ -217,24 +214,22 @@ public class GameController{
             vLanding = Math.sqrt(Math.pow(vx-vPlanet[6],2) + Math.pow(vy-vPlanet[7],2));
         }
     }
-    public void velocityLevel(){
+   // public void velocityLevel(){
         //int w = 10/l; //póki co wartość przypadkowa do ustalenia
-        if(v <= 5 && v >= -5){
+        //if(v <= 5 && v >= -5){
 
     public void fuelLevel(double power)
     {
         fuel -= power*(10*SettingsClass.difficultyInt)/(500);
     }
 
-    public void velocityLevel()
-    {
+    public void velocityLevel() {
         double w = 0.1/SettingsClass.difficultyInt;
-         if(vLanding < w)
-         {
+         //if(vLanding < w){
+        if(v < 3 && v > -3){
             f = 2;
          }
-         else
-         {
+         else{
             f = 1;
          }
     }
@@ -285,7 +280,7 @@ public class GameController{
         }else{
             f = 1;
         }
-    }
+    }*/
 
     public void turnLeft(){
         if(rocket.getTranslateX() > -250){
@@ -302,7 +297,7 @@ public class GameController{
         else{
             rocket.setTranslateX(rocket.getTranslateX());
         }
-    }
+    }/*
     public void goUp(){
         if(rocket.getTranslateY() - 0.005*v > -450 && rocket.getTranslateY() - 0.015*v < 170){
             rocket.setTranslateY(rocket.getTranslateY() - 0.015*v);
@@ -310,23 +305,15 @@ public class GameController{
         else{
             rocket.setTranslateY(rocket.getTranslateY());
         }
-    }
+    }*/
     public void throttleUp(){
         v = v + 1;
     }
     public void throttleDown(){
         v = v - 1;
     }
-    public void landing(){
-        if(f == 2){
-            System.out.println("Rakieta wyladowala");
-        }
-        else{
-            System.out.println("Rakieta sie rozbila");
-        }
-    }
-    */
 
+/*
     public void rotateLeft()
     {
         rotationSpeed -= 0.01;
@@ -335,14 +322,14 @@ public class GameController{
     {
         rotationSpeed += 0.01;
     }
-
+*/
     public void rotation()
     {
         rocket.setRotate(rocket.getRotate() + rotationSpeed);
     }
     public void rocketMotion()
     {
-        v = Math.sqrt(Math.pow(vx,2) + Math.pow(vy,2))*1000;
+       // v = Math.sqrt(Math.pow(vx,2) + Math.pow(vy,2))*1000;
 
         slonce.setLayoutX(slonce.getLayoutX() - vx);
         slonce.setLayoutY(slonce.getLayoutY() - vy);
@@ -410,6 +397,7 @@ public class GameController{
             }
         }
     }
+    /*
     public void throttleUp()
     {
         vx = vx + 0.001*Math.sin(Math.toRadians(rocket.getRotate()));
@@ -419,5 +407,13 @@ public class GameController{
     {
         vx = vx - 0.0005*Math.sin(Math.toRadians(rocket.getRotate()));
         vy = vy + 0.0005*Math.cos(Math.toRadians(rocket.getRotate()));
+    }*/
+    public void landing(){
+        if(f == 2){
+            System.out.println("Udalo sie wyladowac");
+        }
+        else{
+            System.out.println("Rakieta sie rozbila");
+        }
     }
 }

@@ -1,13 +1,15 @@
 package game.solarjourney.Game;
 
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
 //Autor: Anna Kodym
 public class rocket {
     public int radius = 10;
     public double x,y;
-    public Circle rocket;
-    public void setRocket(Circle rocket){
+    //public Circle rocket;
+    public Rectangle rocket;
+    public void setRocket(Rectangle rocket){
         this.rocket = rocket;
     }
     public boolean collidesWith(planet planet) {
@@ -15,4 +17,3 @@ public class rocket {
         return distance <= radius + planet.getRadius();
     }
 }
-//control check d

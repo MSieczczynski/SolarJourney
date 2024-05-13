@@ -40,10 +40,12 @@ public class GameClass extends Application{
                         controller.throttleDown();
                         break;
                     case A:
-                        controller.rotateLeft();
+                        //controller.rotateLeft();
+                        controller.turnLeft();
                         break;
                     case D:
-                        controller.rotateRight();
+                        //controller.rotateRight();
+                        controller.turnRight();
                         break;
                     case L:
                         System.out.println("wcisniete L");

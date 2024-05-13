@@ -75,11 +75,13 @@ public class MenuController {
                         controller.fuelLevel(0.5);
                         break;
                     case A:
-                        controller.rotateLeft();
+                        //controller.rotateLeft();
+                        controller.turnLeft();
                         controller.fuelLevel(0.2);
                         break;
                     case D:
-                        controller.rotateRight();
+                        //controller.rotateRight();
+                        controller.turnRight();
                         controller.fuelLevel(0.2);
                         break;
                     case ESCAPE:
