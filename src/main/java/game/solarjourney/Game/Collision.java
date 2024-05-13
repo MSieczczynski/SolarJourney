@@ -37,17 +37,17 @@ public class Collision
         //srodek rakiety 640,330
         //wymiary rakiety 16,30
         //pierwszy punkt X,Y
-        collisonPoints[0] = 640 + 8*Math.sin(Math.toRadians(rotation));
-        collisonPoints[1] = 330 - 15*Math.cos(Math.toRadians(rotation));
+        collisonPoints[0] = 640 + 8*Math.sin(rotation);
+        collisonPoints[1] = 330 - 15*Math.cos(rotation);
         //drugi punkt X,Y
-        collisonPoints[2] = 640 + 8*Math.cos(Math.toRadians(rotation));
-        collisonPoints[3] = 330 + 15*Math.sin(Math.toRadians(rotation));
+        collisonPoints[2] = 640 + 8*Math.cos(rotation);
+        collisonPoints[3] = 330 + 15*Math.sin(rotation);
         //trzeci punkt X,Y
-        collisonPoints[4] = 640 - 8*Math.sin(Math.toRadians(rotation));
-        collisonPoints[5] = 330 + 15*Math.cos(Math.toRadians(rotation));
+        collisonPoints[4] = 640 - 8*Math.sin(rotation);
+        collisonPoints[5] = 330 + 15*Math.cos(rotation);
         //czwarty punkt X,Y
-        collisonPoints[6] = 640 - 8*Math.cos(Math.toRadians(rotation));
-        collisonPoints[7] = 330 - 15*Math.sin(Math.toRadians(rotation));
+        collisonPoints[6] = 640 - 8*Math.cos(rotation);
+        collisonPoints[7] = 330 - 15*Math.sin(rotation);
 
         collisonDistance[0] = Math.sqrt(Math.pow(lx - collisonPoints[0],2) + Math.pow(ly - collisonPoints[1],2));
         collisonDistance[1] = Math.sqrt(Math.pow(lx - collisonPoints[2],2) + Math.pow(ly - collisonPoints[3],2));

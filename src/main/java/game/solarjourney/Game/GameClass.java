@@ -26,8 +26,8 @@ public class GameClass extends Application{
         GameController controller = loader.getController();
         Scene scene = new Scene(root);
 
-        executor1 = Executors.newScheduledThreadPool(1);
-        executor1.scheduleAtFixedRate(new PlanetControl(controller), 0, 1, TimeUnit.MILLISECONDS);
+        executor = Executors.newScheduledThreadPool(3);
+        executor.scheduleAtFixedRate(new PlanetControl(controller), 0, 5, TimeUnit.MILLISECONDS);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -51,16 +51,14 @@ public class GameClass extends Application{
                         System.out.println("wcisniete L");
                         //start = System.currentTimeMillis();
                         //controller.setStart();
-                        executor = Executors.newScheduledThreadPool(2);
                         executor.scheduleAtFixedRate(new Aktualizacja(controller), 0, 1, TimeUnit.MILLISECONDS);
-                        executor.scheduleAtFixedRate(new Odmalowanie(controller), 1, 1, TimeUnit.MILLISECONDS);
+                        executor.scheduleAtFixedRate(new Odmalowanie(controller), 0, 1, TimeUnit.MILLISECONDS);
                         break;
                     case E:
                         controller.landing();
                         System.out.println("Klawisz Escape został naciśnięty");
                         if (executor != null && !executor.isShutdown()) {
                             executor.shutdown();
-                            executor1.shutdown();
                         }
                         break;
                     case ESCAPE:

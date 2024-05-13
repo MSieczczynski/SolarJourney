@@ -23,6 +23,7 @@ public class GameController{
     public static double v = 1;
     public static double vLanding;
     public static double rotationSpeed = 0;
+    public static double throttleDifferential = 1;
     public double[] distance = new double[5];
     public double[]  gravitationalForce = new double[5];
 
@@ -127,7 +128,7 @@ public class GameController{
         dt[0] = s1;
         dt[1] = s2;
         dt[2] = s3;
-        dt[3] = s4  ;
+        dt[3] = s4;
 
         wenus.setLayoutX(430/(1+0.06772*Math.cos(dt[0]))*Math.cos(dt[0]));
         wenus.setLayoutY(430/(1+0.06772*Math.cos(dt[0]))*Math.sin(dt[0]));
@@ -172,45 +173,44 @@ public class GameController{
 
     public void planetGravitionalForce()
     {
-        distance[0] = Math.sqrt(Math.pow(rocket.getLayoutX() - slonce.getLayoutX(),2) + Math.pow(rocket.getLayoutY() - slonce.getLayoutY(),2));
-        distance[1] = Math.sqrt(Math.pow(rocket.getLayoutX() - wenus.getLayoutX(),2) + Math.pow(rocket.getLayoutY() - wenus.getLayoutY(),2));
-        distance[2] = Math.sqrt(Math.pow(rocket.getLayoutX() - ziemia.getLayoutX(),2) + Math.pow(rocket.getLayoutY() - ziemia.getLayoutY(),2));
-        distance[3] = Math.sqrt(Math.pow(rocket.getLayoutX() - mars.getLayoutX(),2) + Math.pow(rocket.getLayoutY() - mars.getLayoutY(),2));
-        distance[4] = Math.sqrt(Math.pow(rocket.getLayoutX() - jowisz.getLayoutX(),2) + Math.pow(rocket.getLayoutY() - jowisz.getLayoutY(),2));
-
-        gravitationalForce[0] = 10/Math.pow(distance[0],2);
-        gravitationalForce[1] = 0.45/Math.pow(distance[1],2);
-        gravitationalForce[2] = 0.5/Math.pow(distance[2],2);
-        gravitationalForce[3] = 0.19/Math.pow(distance[3],2);
-        gravitationalForce[4] = 1.18/Math.pow(distance[4],2);
+        distance[0] = Math.sqrt(Math.pow(640 - slonce.getLayoutX(),2) + Math.pow(330 - slonce.getLayoutY(),2));
+        distance[1] = Math.sqrt(Math.pow(640 - wenus.getLayoutX(),2) + Math.pow(330 - wenus.getLayoutY(),2));
+        distance[2] = Math.sqrt(Math.pow(640 - ziemia.getLayoutX(),2) + Math.pow(330 - ziemia.getLayoutY(),2));
+        distance[3] = Math.sqrt(Math.pow(640 - mars.getLayoutX(),2) + Math.pow(330 - mars.getLayoutY(),2));
+        distance[4] = Math.sqrt(Math.pow(640 - jowisz.getLayoutX(),2) + Math.pow(330 - jowisz.getLayoutY(),2));
 
         if(distance[0] <= 200)
         {
-            vx += ((slonce.getLayoutX() - rocket.getLayoutX()) / (distance[0])) * gravitationalForce[0];
-            vy += ((slonce.getLayoutY() - rocket.getLayoutY()) / (distance[0])) * gravitationalForce[0];
+            gravitationalForce[0] = 5/Math.pow(distance[0],2);
+            vx += ((slonce.getLayoutX() - 640) / (distance[0])) * gravitationalForce[0];
+            vy += ((slonce.getLayoutY() - 330) / (distance[0])) * gravitationalForce[0];
         }
         if(distance[1] <= 180)
         {
-            vx += ((wenus.getLayoutX()-rocket.getLayoutX())/(distance[1]))*gravitationalForce[1];
-            vy += ((wenus.getLayoutY()-rocket.getLayoutY())/(distance[1]))*gravitationalForce[1];
+            gravitationalForce[1] = 0.225/Math.pow(distance[1],2);
+            vx += ((wenus.getLayoutX() - 640) / (distance[1]))*gravitationalForce[1];
+            vy += ((wenus.getLayoutY() - 330) / (distance[1]))*gravitationalForce[1];
             vLanding = Math.sqrt(Math.pow(vx-vPlanet[0],2) + Math.pow(vy-vPlanet[1],2));
         }
         if(distance[2] <= 186)
         {
-            vx += ((ziemia.getLayoutX()-rocket.getLayoutX())/(distance[2]))*gravitationalForce[2];
-            vy += ((ziemia.getLayoutY()-rocket.getLayoutY())/(distance[2]))*gravitationalForce[2];
+            gravitationalForce[2] = 0.25/Math.pow(distance[2],2);
+            vx += ((ziemia.getLayoutX() - 640) / (distance[2]))*gravitationalForce[2];
+            vy += ((ziemia.getLayoutY() - 330) / (distance[2]))*gravitationalForce[2];
             vLanding = Math.sqrt(Math.pow(vx-vPlanet[2],2) + Math.pow(vy-vPlanet[3],2));
         }
         if(distance[3] <= 96)
         {
-            vx += ((mars.getLayoutX()-rocket.getLayoutX())/(distance[3]))*gravitationalForce[3];
-            vy += ((mars.getLayoutY()-rocket.getLayoutY())/(distance[3]))*gravitationalForce[3];
+            gravitationalForce[3] = 0.095/Math.pow(distance[3],2);
+            vx += ((mars.getLayoutX() - 640) / (distance[3]))*gravitationalForce[3];
+            vy += ((mars.getLayoutY() - 330) / (distance[3]))*gravitationalForce[3];
             vLanding = Math.sqrt(Math.pow(vx-vPlanet[4],2) + Math.pow(vy-vPlanet[5],2));
         }
         if(distance[4] <= 300)
         {
-            vx += ((jowisz.getLayoutX()-rocket.getLayoutX())/(distance[4]))*gravitationalForce[4];
-            vy += ((jowisz.getLayoutY()-rocket.getLayoutY())/(distance[4]))*gravitationalForce[4];
+            gravitationalForce[4] = 0.59/Math.pow(distance[4],2);
+            vx += ((jowisz.getLayoutX() - 640) / (distance[4]))*gravitationalForce[4];
+            vy += ((jowisz.getLayoutY() - 330) / (distance[4]))*gravitationalForce[4];
             vLanding = Math.sqrt(Math.pow(vx-vPlanet[6],2) + Math.pow(vy-vPlanet[7],2));
         }
     }
@@ -282,6 +282,7 @@ public class GameController{
         }
     }*/
 
+
     public void turnLeft(){
         if(rocket.getTranslateX() > -250){
             rocket.setTranslateX(rocket.getTranslateX() - 10);
@@ -297,7 +298,11 @@ public class GameController{
         else{
             rocket.setTranslateX(rocket.getTranslateX());
         }
-    }/*
+    }
+
+
+    /*
+
     public void goUp(){
         if(rocket.getTranslateY() - 0.005*v > -450 && rocket.getTranslateY() - 0.015*v < 170){
             rocket.setTranslateY(rocket.getTranslateY() - 0.015*v);
@@ -306,6 +311,8 @@ public class GameController{
             rocket.setTranslateY(rocket.getTranslateY());
         }
     }*/
+
+
     public void throttleUp(){
         v = v + 1;
     }
@@ -313,7 +320,10 @@ public class GameController{
         v = v - 1;
     }
 
-/*
+
+
+
+    /*
     public void rotateLeft()
     {
         rotationSpeed -= 0.01;
@@ -322,14 +332,16 @@ public class GameController{
     {
         rotationSpeed += 0.01;
     }
-*/
+
+     */
+
     public void rotation()
     {
         rocket.setRotate(rocket.getRotate() + rotationSpeed);
     }
     public void rocketMotion()
     {
-       // v = Math.sqrt(Math.pow(vx,2) + Math.pow(vy,2))*1000;
+        //v = Math.sqrt(Math.pow(vx,2) + Math.pow(vy,2))*1000;
 
         slonce.setLayoutX(slonce.getLayoutX() - vx);
         slonce.setLayoutY(slonce.getLayoutY() - vy);
@@ -364,50 +376,59 @@ public class GameController{
                 vy = 0;
             }
         }
-        if(distance[1] <= 180)
+        else if(distance[1] <= 180)
         {
+            throttleDifferential = 360/distance[1];
             if(vsPlanet.collisonCheck(rocket.getRotate(),wenus.getLayoutX(),wenus.getLayoutY(),30))
             {
                 vx = 0;
                 vy = 0;
             }
         }
-        if(distance[2] <= 186)
+        else if(distance[2] <= 186)
         {
+            throttleDifferential = 372/distance[2];
             if(vsPlanet.collisonCheck(rocket.getRotate(),ziemia.getLayoutX(),ziemia.getLayoutY(),31))
             {
                 vx = 0;
                 vy = 0;
             }
         }
-        if(distance[3] <= 96)
+        else if(distance[3] <= 96)
         {
+            throttleDifferential = 192/distance[3];
             if(vsPlanet.collisonCheck(rocket.getRotate(),mars.getLayoutX(),mars.getLayoutY(),25))
             {
                 vx = 0;
                 vy = 0;
             }
         }
-        if(distance[4] <= 300)
+        else if(distance[4] <= 600)
         {
+            throttleDifferential = 300/distance[4];
             if(vsPlanet.collisonCheck(rocket.getRotate(),jowisz.getLayoutX(),jowisz.getLayoutY(),50))
             {
                 vx = 0;
                 vy = 0;
             }
         }
+        else
+            throttleDifferential = 1;
     }
+
     /*
     public void throttleUp()
     {
-        vx = vx + 0.001*Math.sin(Math.toRadians(rocket.getRotate()));
-        vy = vy - 0.001*Math.cos(Math.toRadians(rocket.getRotate()));
+        vx = vx + 0.001*throttleDifferential*Math.sin(Math.toRadians(rocket.getRotate()));
+        vy = vy - 0.001*throttleDifferential*Math.cos(Math.toRadians(rocket.getRotate()));
     }
     public void throttleDown()
     {
-        vx = vx - 0.0005*Math.sin(Math.toRadians(rocket.getRotate()));
-        vy = vy + 0.0005*Math.cos(Math.toRadians(rocket.getRotate()));
-    }*/
+        vx = vx - 0.0005*throttleDifferential*Math.sin(Math.toRadians(rocket.getRotate()));
+        vy = vy + 0.0005*throttleDifferential*Math.cos(Math.toRadians(rocket.getRotate()));
+    }
+
+     */
     public void landing(){
         if(f == 2){
             System.out.println("Udalo sie wyladowac");
