@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
-//Autor: Anna Kodym v
+//Autor: Anna Kodym i Michał Sieczczyński
 public class Collision
 {
     /*
@@ -27,7 +27,6 @@ public class Collision
     }
      */
 
-    private double[] rocketCenter = new double[2];
     private double[] collisonPoints = new double[8];
     private double[] collisonDistance = new double[4];
 

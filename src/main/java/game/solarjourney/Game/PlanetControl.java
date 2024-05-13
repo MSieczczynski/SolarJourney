@@ -15,7 +15,6 @@ public class PlanetControl implements Runnable
         Platform.runLater(() -> {
             controller.planetSpeedEvaluation();
             controller.planetPosition();
-
         });
     }
 }

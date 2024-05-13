@@ -13,7 +13,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-//Autor: Anna Kodym
+//Autor: Anna Kodym i Michał Sieczczyński
 public class GameController{
     protected static double fuel = 100;
     //public double t;

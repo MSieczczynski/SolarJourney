@@ -13,12 +13,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+//Autor: Anna Kodym
 public class GameClass extends Application{
     //public static double start;
     public static double sceneWidth;
     public double sceneHeight;
     private ScheduledExecutorService executor;
-    private ScheduledExecutorService executor1;
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GameView.fxml"));
