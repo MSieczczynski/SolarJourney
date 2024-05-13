@@ -96,8 +96,16 @@ public class GameClass extends Application{
                         start = System.currentTimeMillis();
                         controller.setStart();
                         executor = Executors.newScheduledThreadPool(2);
-                        executor.scheduleAtFixedRate(new Aktualizacja(controller), 0, 1, TimeUnit.SECONDS);
-                        executor.scheduleAtFixedRate(new Odmalowanie(controller), 500, 1000, TimeUnit.MILLISECONDS);
+                        executor.scheduleAtFixedRate(new Aktualizacja(controller), 0, 1, TimeUnit.MILLISECONDS);
+                        executor.scheduleAtFixedRate(new Odmalowanie(controller), 1, 1, TimeUnit.MILLISECONDS);
+                        break;
+                    case E:
+                        controller.landing();
+                        System.out.println("Klawisz Escape został naciśnięty");
+                        if (executor != null && !executor.isShutdown()) {
+                            executor.shutdown();
+                            executor1.shutdown();
+                        }
                         break;
                     case ESCAPE:
                         System.out.println("Klawisz Escape został naciśnięty");

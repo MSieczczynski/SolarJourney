@@ -16,8 +16,8 @@ public class GameController{
     protected static double fuel = 100;
     public double t;
     public double start;
-    public static double v = 10.0;
-    private int f; // do przekazywania czy prędkość jest dobra
+    public static double v = 1.0;
+    public int f; // do przekazywania czy prędkość jest dobra
     public static int l = 1; //do przekazywania poziomu trudności 1-łatwy, 2-średmi 2-trudny
     @FXML
     public Button menu;
@@ -88,7 +88,7 @@ public class GameController{
     }
     public void velocityLevel(){
         //int w = 10/l; //póki co wartość przypadkowa do ustalenia
-        if(v <= 10 && v >= -10){
+        if(v <= 5 && v >= -5){
             f = 2;
         }else{
             f = 1;
@@ -137,17 +137,25 @@ public class GameController{
         }
     }
     public void goUp(){
-        if(rocket.getTranslateY() - 1*v > -450 && rocket.getTranslateY() - 1*v < 170){
-            rocket.setTranslateY(rocket.getTranslateY() - 1*v);
+        if(rocket.getTranslateY() - 0.005*v > -450 && rocket.getTranslateY() - 0.015*v < 170){
+            rocket.setTranslateY(rocket.getTranslateY() - 0.015*v);
         }
         else{
             rocket.setTranslateY(rocket.getTranslateY());
         }
     }
     public void throttleUp(){
-        v = v + 5;
+        v = v + 1;
     }
     public void throttleDown(){
-        v = v - 5;
+        v = v - 1;
+    }
+    public void landing(){
+        if(f == 2){
+            System.out.println("Rakieta wyladowala");
+        }
+        else{
+            System.out.println("Rakieta sie rozbila");
+        }
     }
 }

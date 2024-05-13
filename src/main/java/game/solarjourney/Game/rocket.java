@@ -6,7 +6,10 @@ import javafx.scene.shape.Circle;
 public class rocket {
     public int radius = 10;
     public double x,y;
-
+    public Circle rocket;
+    public void setRocket(Circle rocket){
+        this.rocket = rocket;
+    }
     public boolean collidesWith(planet planet) {
         double distance = Math.sqrt(Math.pow(x - planet.getX(), 2) + Math.pow(y - planet.getY(), 2));
         return distance <= radius + planet.getRadius();
