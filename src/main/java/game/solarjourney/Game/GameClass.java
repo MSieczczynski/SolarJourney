@@ -41,12 +41,12 @@ public class GameClass extends Application{
                         controller.throttleDown();
                         break;
                     case A:
-                        //controller.rotateLeft();
-                        controller.turnLeft();
+                        controller.rotateLeft();
+                        //controller.turnLeft();
                         break;
                     case D:
-                        //controller.rotateRight();
-                        controller.turnRight();
+                        controller.rotateRight();
+                        //controller.turnRight();
                         break;
                     case L:
                         System.out.println("wcisniete L");
@@ -57,7 +57,7 @@ public class GameClass extends Application{
                         break;
                     case E:
                         controller.landing();
-                        System.out.println("Klawisz Escape został naciśnięty");
+                        System.out.println("Klawisz E został naciśnięty");
                         if (executor != null && !executor.isShutdown()) {
                             executor.shutdown();
                         }

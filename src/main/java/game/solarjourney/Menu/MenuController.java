@@ -53,8 +53,7 @@ public class MenuController {
         GameController controller = fxmlloader.getController();
         Scene scene = stage.getScene();
 
-
-        controller.planetStartPosition(1,0,2,3);
+        controller.planetStartPosition(0,0,0,0);
         executor = Executors.newScheduledThreadPool(3);
         executor.scheduleAtFixedRate(new PlanetControl(controller), 0, 5, TimeUnit.MILLISECONDS);
 
@@ -75,13 +74,13 @@ public class MenuController {
                         controller.fuelLevel(0.5);
                         break;
                     case A:
-                        //controller.rotateLeft();
-                        controller.turnLeft();
+                        controller.rotateLeft();
+                        //controller.turnLeft();
                         controller.fuelLevel(0.2);
                         break;
                     case D:
-                        //controller.rotateRight();
-                        controller.turnRight();
+                        controller.rotateRight();
+                        //controller.turnRight();
                         controller.fuelLevel(0.2);
                         break;
                     case ESCAPE:

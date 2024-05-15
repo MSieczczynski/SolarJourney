@@ -18,9 +18,9 @@ public class GameController{
     protected static double fuel = 100;
     //public double t;
     //public double start;
-    public static double vx;
-    public static double vy;
-    public static double v = 1;
+    public static double vx = 0;
+    public static double vy = 0;
+    public static double v = 0;
     public static double vLanding;
     public static double rotationSpeed = 0;
     public static double throttleDifferential = 1;
@@ -74,7 +74,7 @@ public class GameController{
 
     public Collision vsPlanet = new Collision();
 
-    public static double[] dt = {0,0,0,0};
+    public static double[] dphi = {0,0,0,0};
     public static double[] vPlanet = new double[8];
     public void planetPosition()
     {
@@ -125,50 +125,50 @@ public class GameController{
     }
     public void planetStartPosition(double s1, double s2, double s3, double s4)
     {
-        dt[0] = s1;
-        dt[1] = s2;
-        dt[2] = s3;
-        dt[3] = s4;
+        dphi[0] = s1;
+        dphi[1] = s2;
+        dphi[2] = s3;
+        dphi[3] = s4;
 
-        wenus.setLayoutX(430/(1+0.06772*Math.cos(dt[0]))*Math.cos(dt[0]));
-        wenus.setLayoutY(430/(1+0.06772*Math.cos(dt[0]))*Math.sin(dt[0]));
-        wenusSiatka.setLayoutX(430/(1+0.06772*Math.cos(dt[0]))*Math.cos(dt[0]));
-        wenusSiatka.setLayoutY(430/(1+0.06772*Math.cos(dt[0]))*Math.sin(dt[0]));
+        wenus.setLayoutX(430/(1+0.06772*Math.cos(dphi[0]))*Math.cos(dphi[0]));
+        wenus.setLayoutY(430/(1+0.06772*Math.cos(dphi[0]))*Math.sin(dphi[0]));
+        wenusSiatka.setLayoutX(430/(1+0.06772*Math.cos(dphi[0]))*Math.cos(dphi[0]));
+        wenusSiatka.setLayoutY(430/(1+0.06772*Math.cos(dphi[0]))*Math.sin(dphi[0]));
 
-        ziemia.setLayoutX(805/(1+0.0167086*Math.cos(dt[1]))*Math.cos(dt[1]));
-        ziemia.setLayoutY(805/(1+0.0167086*Math.cos(dt[1]))*Math.sin(dt[1]));
-        ziemiaSiatka.setLayoutX(805/(1+0.0167086*Math.cos(dt[1]))*Math.cos(dt[1]));
-        ziemiaSiatka.setLayoutY(805/(1+0.0167086*Math.cos(dt[1]))*Math.sin(dt[1]));
+        ziemia.setLayoutX(805/(1+0.0167086*Math.cos(dphi[1]))*Math.cos(dphi[1]));
+        ziemia.setLayoutY(805/(1+0.0167086*Math.cos(dphi[1]))*Math.sin(dphi[1]));
+        ziemiaSiatka.setLayoutX(805/(1+0.0167086*Math.cos(dphi[1]))*Math.cos(dphi[1]));
+        ziemiaSiatka.setLayoutY(805/(1+0.0167086*Math.cos(dphi[1]))*Math.sin(dphi[1]));
 
-        mars.setLayoutX(1190/(1+0.0934*Math.cos(dt[2]))*Math.cos(dt[2]));
-        mars.setLayoutY(1190/(1+0.0934*Math.cos(dt[2]))*Math.sin(dt[2]));
-        marsSiatka.setLayoutX(1190/(1+0.0934*Math.cos(dt[2]))*Math.cos(dt[2]));
-        marsSiatka.setLayoutY(1190/(1+0.0934*Math.cos(dt[2]))*Math.sin(dt[2]));
+        mars.setLayoutX(1190/(1+0.0934*Math.cos(dphi[2]))*Math.cos(dphi[2]));
+        mars.setLayoutY(1190/(1+0.0934*Math.cos(dphi[2]))*Math.sin(dphi[2]));
+        marsSiatka.setLayoutX(1190/(1+0.0934*Math.cos(dphi[2]))*Math.cos(dphi[2]));
+        marsSiatka.setLayoutY(1190/(1+0.0934*Math.cos(dphi[2]))*Math.sin(dphi[2]));
 
-        jowisz.setLayoutX(1585/(1+0.0489*Math.cos(dt[3]))*Math.cos(dt[3]));
-        jowisz.setLayoutY(1585/(1+0.0489*Math.cos(dt[3]))*Math.sin(dt[3]));
-        jowiszSiatka.setLayoutX(1585/(1+0.0489*Math.cos(dt[3]))*Math.cos(dt[3]));
-        jowiszSiatka.setLayoutY(1584/(1+0.0489*Math.cos(dt[3]))*Math.sin(dt[3]));
+        jowisz.setLayoutX(1585/(1+0.0489*Math.cos(dphi[3]))*Math.cos(dphi[3]));
+        jowisz.setLayoutY(1585/(1+0.0489*Math.cos(dphi[3]))*Math.sin(dphi[3]));
+        jowiszSiatka.setLayoutX(1585/(1+0.0489*Math.cos(dphi[3]))*Math.cos(dphi[3]));
+        jowiszSiatka.setLayoutY(1584/(1+0.0489*Math.cos(dphi[3]))*Math.sin(dphi[3]));
     }
 
     public void planetSpeedEvaluation()
     {
-        dt[0] += 0.0001;
-        dt[1] += 0.00007;
-        dt[2] += 0.00004;
-        dt[3] += 0.00001;
+        dphi[0] += 0.0001;
+        dphi[1] += 0.00007;
+        dphi[2] += 0.00004;
+        dphi[3] += 0.00001;
 
-        vPlanet[0] = (0.00291196*Math.sin(dt[0]))/Math.pow(1+0.06772*Math.cos(dt[0]),2)*Math.cos(dt[0]) - 0.043/(1+0.06772*Math.cos(dt[0]))*Math.sin(dt[0]);
-        vPlanet[1] = (0.00291196*Math.sin(dt[0]))/Math.pow(1+0.06772*Math.cos(dt[0]),2)*Math.sin(dt[0]) + 0.043/(1+0.06772*Math.cos(dt[0]))*Math.cos(dt[0]);
+        vPlanet[0] = (0.00291196*Math.sin(dphi[0]))/Math.pow(1+0.06772*Math.cos(dphi[0]),2)*Math.cos(dphi[0]) - 0.043/(1+0.06772*Math.cos(dphi[0]))*Math.sin(dphi[0]);
+        vPlanet[1] = (0.00291196*Math.sin(dphi[0]))/Math.pow(1+0.06772*Math.cos(dphi[0]),2)*Math.sin(dphi[0]) + 0.043/(1+0.06772*Math.cos(dphi[0]))*Math.cos(dphi[0]);
 
-        vPlanet[2] = (0.000941547*Math.sin(dt[1]))/Math.pow(1+0.0167089*Math.cos(dt[1]),2)*Math.cos(dt[1]) - 0.05635/(1+0.0167089*Math.cos(dt[1]))*Math.sin(dt[1]);
-        vPlanet[3] = (0.000941547*Math.sin(dt[1]))/Math.pow(1+0.0167089*Math.cos(dt[1]),2)*Math.sin(dt[1]) + 0.05635/(1+0.0167089*Math.cos(dt[1]))*Math.cos(dt[1]);
+        vPlanet[2] = (0.000941547*Math.sin(dphi[1]))/Math.pow(1+0.0167089*Math.cos(dphi[1]),2)*Math.cos(dphi[1]) - 0.05635/(1+0.0167089*Math.cos(dphi[1]))*Math.sin(dphi[1]);
+        vPlanet[3] = (0.000941547*Math.sin(dphi[1]))/Math.pow(1+0.0167089*Math.cos(dphi[1]),2)*Math.sin(dphi[1]) + 0.05635/(1+0.0167089*Math.cos(dphi[1]))*Math.cos(dphi[1]);
 
-        vPlanet[4] = (0.00444584*Math.sin(dt[2]))/Math.pow(1+0.0934*Math.cos(dt[2]),2)*Math.cos(dt[2]) - 0.0476/(1+0.0934*Math.cos(dt[2]))*Math.sin(dt[2]);
-        vPlanet[5] = (0.00444584*Math.sin(dt[2]))/Math.pow(1+0.0934*Math.cos(dt[2]),2)*Math.sin(dt[2]) + 0.0476/(1+0.0934*Math.cos(dt[2]))*Math.cos(dt[2]);
+        vPlanet[4] = (0.00444584*Math.sin(dphi[2]))/Math.pow(1+0.0934*Math.cos(dphi[2]),2)*Math.cos(dphi[2]) - 0.0476/(1+0.0934*Math.cos(dphi[2]))*Math.sin(dphi[2]);
+        vPlanet[5] = (0.00444584*Math.sin(dphi[2]))/Math.pow(1+0.0934*Math.cos(dphi[2]),2)*Math.sin(dphi[2]) + 0.0476/(1+0.0934*Math.cos(dphi[2]))*Math.cos(dphi[2]);
 
-        vPlanet[6] = (0.000775065*Math.sin(dt[3]))/Math.pow(1+0.0489*Math.cos(dt[3]),2)*Math.cos(dt[3]) - 0.01585/(1+0.0489*Math.cos(dt[3]))*Math.sin(dt[3]);
-        vPlanet[7] = (0.000775065*Math.sin(dt[3]))/Math.pow(1+0.0489*Math.cos(dt[3]),2)*Math.sin(dt[3]) + 0.01585/(1+0.0489*Math.cos(dt[3]))*Math.cos(dt[3]);
+        vPlanet[6] = (0.000775065*Math.sin(dphi[3]))/Math.pow(1+0.0489*Math.cos(dphi[3]),2)*Math.cos(dphi[3]) - 0.01585/(1+0.0489*Math.cos(dphi[3]))*Math.sin(dphi[3]);
+        vPlanet[7] = (0.000775065*Math.sin(dphi[3]))/Math.pow(1+0.0489*Math.cos(dphi[3]),2)*Math.sin(dphi[3]) + 0.01585/(1+0.0489*Math.cos(dphi[3]))*Math.cos(dphi[3]);
     }
 
     public void planetGravitionalForce()
@@ -220,13 +220,13 @@ public class GameController{
 
     public void fuelLevel(double power)
     {
-        fuel -= power*(10*SettingsClass.difficultyInt)/(500);
+        fuel -= power*(SettingsClass.difficultyInt)/(50);
     }
 
     public void velocityLevel() {
-        double w = 0.1/SettingsClass.difficultyInt;
-         //if(vLanding < w){
-        if(v < 3 && v > -3){
+        double w = 0.2/SettingsClass.difficultyInt;
+         if(vLanding < w)
+         {
             f = 2;
          }
          else{
@@ -282,7 +282,7 @@ public class GameController{
         }
     }*/
 
-
+    /*
     public void turnLeft(){
         if(rocket.getTranslateX() > -250){
             rocket.setTranslateX(rocket.getTranslateX() - 10);
@@ -300,6 +300,8 @@ public class GameController{
         }
     }
 
+     */
+
 
     /*
 
@@ -313,27 +315,28 @@ public class GameController{
     }*/
 
 
+    /*
     public void throttleUp(){
-        v = v + 1;
+        vy = vy - 0.01;
     }
     public void throttleDown(){
-        v = v - 1;
+        vy = vy + 0.01;
     }
+    */
 
 
 
 
-    /*
     public void rotateLeft()
     {
-        rotationSpeed -= 0.01;
+        rotationSpeed -= 0.02;
     }
     public void rotateRight()
     {
-        rotationSpeed += 0.01;
+        rotationSpeed += 0.02;
     }
 
-     */
+
 
     public void rotation()
     {
@@ -341,7 +344,7 @@ public class GameController{
     }
     public void rocketMotion()
     {
-        //v = Math.sqrt(Math.pow(vx,2) + Math.pow(vy,2))*1000;
+        v = Math.sqrt(Math.pow(vx,2) + Math.pow(vy,2))*1000;
 
         slonce.setLayoutX(slonce.getLayoutX() - vx);
         slonce.setLayoutY(slonce.getLayoutY() - vy);
@@ -378,7 +381,7 @@ public class GameController{
         }
         else if(distance[1] <= 180)
         {
-            throttleDifferential = 360/distance[1];
+            throttleDifferential = 720/distance[1];
             if(vsPlanet.collisonCheck(rocket.getRotate(),wenus.getLayoutX(),wenus.getLayoutY(),30))
             {
                 vx = 0;
@@ -387,7 +390,7 @@ public class GameController{
         }
         else if(distance[2] <= 186)
         {
-            throttleDifferential = 372/distance[2];
+            throttleDifferential = 744/distance[2];
             if(vsPlanet.collisonCheck(rocket.getRotate(),ziemia.getLayoutX(),ziemia.getLayoutY(),31))
             {
                 vx = 0;
@@ -396,7 +399,7 @@ public class GameController{
         }
         else if(distance[3] <= 96)
         {
-            throttleDifferential = 192/distance[3];
+            throttleDifferential = 384/distance[3];
             if(vsPlanet.collisonCheck(rocket.getRotate(),mars.getLayoutX(),mars.getLayoutY(),25))
             {
                 vx = 0;
@@ -405,7 +408,7 @@ public class GameController{
         }
         else if(distance[4] <= 600)
         {
-            throttleDifferential = 300/distance[4];
+            throttleDifferential = 1200/distance[4];
             if(vsPlanet.collisonCheck(rocket.getRotate(),jowisz.getLayoutX(),jowisz.getLayoutY(),50))
             {
                 vx = 0;
@@ -416,19 +419,19 @@ public class GameController{
             throttleDifferential = 1;
     }
 
-    /*
+
     public void throttleUp()
     {
-        vx = vx + 0.001*throttleDifferential*Math.sin(Math.toRadians(rocket.getRotate()));
-        vy = vy - 0.001*throttleDifferential*Math.cos(Math.toRadians(rocket.getRotate()));
+        vx = vx + 0.0005*throttleDifferential*Math.sin(Math.toRadians(rocket.getRotate()));
+        vy = vy - 0.0005*throttleDifferential*Math.cos(Math.toRadians(rocket.getRotate()));
     }
     public void throttleDown()
     {
-        vx = vx - 0.0005*throttleDifferential*Math.sin(Math.toRadians(rocket.getRotate()));
-        vy = vy + 0.0005*throttleDifferential*Math.cos(Math.toRadians(rocket.getRotate()));
+        vx = vx - 0.00025*throttleDifferential*Math.sin(Math.toRadians(rocket.getRotate()));
+        vy = vy + 0.00025*throttleDifferential*Math.cos(Math.toRadians(rocket.getRotate()));
     }
 
-     */
+
     public void landing(){
         if(f == 2){
             System.out.println("Udalo sie wyladowac");
