@@ -66,7 +66,7 @@ public class GameClass extends Application{
                         System.out.println("Klawisz Escape został naciśnięty");
                         if (executor != null && !executor.isShutdown()) {
                             executor.shutdown();
-                        }
+                        }   //
                         break;
                     default:
                         break;
