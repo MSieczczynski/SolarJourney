@@ -4,6 +4,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
@@ -31,15 +34,180 @@
       <AnchorPane layoutY="60.0" prefHeight="660.0" prefWidth="1280.0" style="-fx-background-color: BLACK; -fx-view-order: 0;">
          <children>
             <Rectangle fx:id="rocket" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="632.0" layoutY="315.0" stroke="BLACK" strokeType="INSIDE" style="-fx-view-order: -1;" width="16.0" />
-            <Circle fx:id="slonce" fill="#d7f52c" radius="100.0" strokeType="INSIDE" />
+            <Circle fx:id="slonce" radius="100.0" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REPEAT" radius="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7417587041854858" green="0.8070175647735596" blue="0.15442928671836853" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.1097560975609756">
+                           <color>
+                              <Color red="0.7417587041854858" green="0.8070175647735596" blue="0.15442928671836853" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.24390243902439024">
+                           <color>
+                              <Color red="0.7894737124443054" green="0.707602322101593" blue="0.2436647117137909" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.38008130081300817">
+                           <color>
+                              <Color red="0.7543859481811523" green="0.6728936433792114" blue="0.5099090337753296" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.48577235772357724">
+                           <color>
+                              <Color red="0.75" green="0.5360465049743652" blue="0.5099999904632568" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6483739837398375">
+                           <color>
+                              <Color red="0.75" green="0.5339999794960022" blue="0.5099999904632568" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill></Circle>
             <Circle fx:id="slonceSiatka" blendMode="ADD" radius="200.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
-            <Circle fx:id="wenus" fill="DODGERBLUE" layoutX="400.0" layoutY="0.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="wenus" layoutX="400.0" layoutY="0.0" radius="30.0" stroke="BLACK" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5811808399608653" centerY="0.5" focusDistance="-0.1526717848450173" radius="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.11999999731779099" blue="0.11999999731779099" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.29065040650406504">
+                           <color>
+                              <Color red="0.4912280738353729" green="0.04093567281961441" blue="0.04093567281961441" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill></Circle>
             <Circle fx:id="wenusSiatka" blendMode="ADD" layoutX="400.0" layoutY="0.0" radius="180.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
-            <Circle fx:id="ziemia" fill="DODGERBLUE" layoutX="790.0" layoutY="0.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="ziemia" layoutX="790.0" layoutY="0.0" radius="31.0" stroke="BLACK" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REPEAT" radius="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.05701754242181778" green="0.4736842215061188" blue="0.15423975884914398" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.21029082774049213">
+                           <color>
+                              <Color red="0.05701754242181778" green="0.4736842215061188" blue="0.15423975884914398" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.4735772357723577">
+                           <color>
+                              <Color red="0.06159999966621399" green="0.07457797229290009" blue="0.5600000023841858" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill></Circle>
             <Circle fx:id="ziemiaSiatka" blendMode="ADD" layoutX="790.0" layoutY="0.0" radius="186.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
-            <Circle fx:id="mars" fill="DODGERBLUE" layoutX="1090.0" layoutY="0.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="mars" layoutX="1090.0" layoutY="0.0" radius="25.0" stroke="BLACK" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REPEAT" radius="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.2017543911933899" green="0.006849686149507761" blue="0.006849686149507761" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.1251841545261091">
+                           <color>
+                              <Color red="0.2017543911933899" green="0.006849686149507761" blue="0.006849686149507761" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.37200578381622745">
+                           <color>
+                              <Color red="0.7280701994895935" green="0.04494260251522064" blue="0.04494260251522064" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.5934959349593496">
+                           <color>
+                              <Color red="0.7200000286102295" green="0.05040000006556511" blue="0.05040000006556511" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill></Circle>
             <Circle fx:id="marsSiatka" blendMode="ADD" layoutX="1090.0" layoutY="0.0" radius="96.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
-            <Circle fx:id="jowisz" fill="DODGERBLUE" layoutX="1510.0" layoutY="0.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="jowisz" layoutX="1510.0" layoutY="0.0" radius="50.0" stroke="BLACK" strokeType="INSIDE">
+               <fill>
+                  <RadialGradient centerX="0.5996310385390841" centerY="0.5" focusDistance="-0.18320610687022898" radius="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.8947368264198303" green="0.6350145936012268" blue="0.07456140220165253" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.08943089430894309">
+                           <color>
+                              <Color red="0.6140350699424744" green="0.36102989315986633" blue="0.10802469402551651" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.2235772357723577">
+                           <color>
+                              <Color red="0.8070175647735596" green="0.4919320046901703" blue="0.1768464297056198" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.32068805587384736">
+                           <color>
+                              <Color red="0.6929824352264404" green="0.4288363754749298" blue="0.1646902710199356" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.43332242047252684">
+                           <color>
+                              <Color red="0.25438597798347473" green="0.16016894578933716" blue="0.06595191359519958" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.5447154471544716">
+                           <color>
+                              <Color red="0.8245614171028137" green="0.49880874156951904" blue="0.17305609583854675" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6341463414634146">
+                           <color>
+                              <Color red="0.429824560880661" green="0.31261777877807617" blue="0.05969785526394844" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.38596490025520325" green="0.21263808012008667" blue="0.0393112413585186" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill></Circle>
             <Circle fx:id="jowiszSiatka" blendMode="ADD" layoutX="1510.0" layoutY="0.0" radius="300.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
          </children>
       </AnchorPane>
