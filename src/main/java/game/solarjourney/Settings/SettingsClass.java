@@ -5,6 +5,6 @@ package game.solarjourney.Settings;
 public class SettingsClass
 {
     public static double difficultyInt = 2;
-    public static int throttleSensivityValue;
-    public static int rotateSensivityValue;
+    public static int throttleSensivityValue = 100;
+    public static int rotateSensivityValue = 100;
 }

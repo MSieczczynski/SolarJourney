@@ -1,6 +1,7 @@
 package game.solarjourney.Menu;
 
 import game.solarjourney.Game.*;
+import game.solarjourney.Settings.SettingsClass;
 import game.solarjourney.Settings.SettingsController;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -19,18 +20,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import static game.solarjourney.Game.GameController.*;
+
 //Autor: Anna Kodym (poza funkcją opisaną)
 public class MenuController {
     private Stage stage;
-    private GameClass game;
-    public static double sceneWidth;
-    public double sceneHeight;
-    private ScheduledExecutorService executor;
-    private ScheduledExecutorService executor1;
+    public static ScheduledExecutorService executor;
     @FXML
     public Button exit;
-    @FXML
-    private TextField field;
+
     @FXML
     public void switchToSettings(ActionEvent event) throws IOException {
         //Autor:Michał Sieczczyński
@@ -42,9 +40,11 @@ public class MenuController {
         stage.show();
          */
         FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Settings/SettingsView.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.getScene().setRoot(fxmlloader.load());
+
     }
+
     @FXML
     public void switchToGame(ActionEvent event) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader(MenuController.class.getResource("/game/solarjourney/Game/GameView.fxml"));
@@ -55,16 +55,18 @@ public class MenuController {
 
         controller.planetStartPosition(0,0,0,0);
         executor = Executors.newScheduledThreadPool(3);
-        executor.scheduleAtFixedRate(new PlanetControl(controller), 0, 5, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(new PlanetControl(controller), 0, 1, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(new Aktualizacja(controller), 0, 1, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(new Odmalowanie(controller), 0, 1, TimeUnit.MILLISECONDS);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 switch(event.getCode()){
                     case L:
-                        System.out.println("wcisniete L");
-                        executor.scheduleAtFixedRate(new Aktualizacja(controller), 0, 1, TimeUnit.MILLISECONDS);
-                        executor.scheduleAtFixedRate(new Odmalowanie(controller), 0, 1, TimeUnit.MILLISECONDS);
+                        if(!landingSuccess) {
+                            controller.starting();
+                        }
                     case W:
                         controller.throttleUp();
                         controller.fuelLevel(1);
@@ -75,12 +77,10 @@ public class MenuController {
                         break;
                     case A:
                         controller.rotateLeft();
-                        //controller.turnLeft();
                         controller.fuelLevel(0.2);
                         break;
                     case D:
                         controller.rotateRight();
-                        //controller.turnRight();
                         controller.fuelLevel(0.2);
                         break;
                     case ESCAPE:
@@ -94,7 +94,7 @@ public class MenuController {
                 }
             }
         });
-        stage.setTitle("Game");
+        stage.setTitle("Solar Journey");
         stage.setResizable(true);
         stage.setFullScreen(false);
         stage.show();

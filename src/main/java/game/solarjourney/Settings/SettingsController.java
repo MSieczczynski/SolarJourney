@@ -1,5 +1,6 @@
 package game.solarjourney.Settings;
 
+import game.solarjourney.Menu.MenuController;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -30,6 +31,8 @@ public class SettingsController {
         stage.show();
     }
 
+
+    /*
     String key = null;
 
     @FXML
@@ -54,6 +57,8 @@ public class SettingsController {
         btn.addEventHandler(KeyEvent.KEY_PRESSED, keyBind);
     }
 
+     */
+
     @FXML
     private Button difficulty;
 
@@ -72,7 +77,7 @@ public class SettingsController {
     private Slider throttleSensitivity;
 
     @FXML
-    private Slider rotateSensitivity;
+    public Slider rotateSensitivity;
 
     @FXML
     protected void Save(ActionEvent event)
@@ -85,5 +90,17 @@ public class SettingsController {
             SettingsClass.difficultyInt = 3;
         SettingsClass.throttleSensivityValue = (int)throttleSensitivity.getValue();
         SettingsClass.rotateSensivityValue = (int)rotateSensitivity.getValue();
+    }
+
+    public void Get()
+    {
+        throttleSensitivity.setValue(SettingsClass.throttleSensivityValue);
+        rotateSensitivity.setValue(SettingsClass.rotateSensivityValue);
+        if(SettingsClass.difficultyInt == 1)
+        {difficulty.setText("Easy");}
+        if(SettingsClass.difficultyInt == 2)
+        {difficulty.setText("Normal");}
+        if(SettingsClass.difficultyInt == 3)
+        {difficulty.setText("Hard");}
     }
 }

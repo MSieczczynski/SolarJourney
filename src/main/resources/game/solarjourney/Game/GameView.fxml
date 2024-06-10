@@ -10,6 +10,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.solarjourney.Game.GameController">
@@ -256,6 +257,16 @@
                   </RadialGradient>
                </fill></Circle>
             <Circle fx:id="jowiszSiatka" blendMode="ADD" layoutX="1510.0" layoutY="0.0" radius="300.0" stroke="WHITE" style="-fx-stroke-dash-array: 10; -fx-view-order: 0;" />
+            <Label fx:id="gameOver" alignment="CENTER" layoutX="626.0" layoutY="322.0" text="Game Over" textFill="#f50707" visible="false" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="250.0">
+               <font>
+                  <Font name="System Bold" size="96.0" />
+               </font>
+            </Label>
+            <Label fx:id="SLanding" alignment="CENTER" layoutX="636.0" layoutY="332.0" text="Successful landing" textFill="#07f507" visible="false" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="700.0" AnchorPane.topAnchor="250.0">
+               <font>
+                  <Font name="System Bold" size="96.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

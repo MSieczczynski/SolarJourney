@@ -1,7 +1,6 @@
 package game.solarjourney.Game;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -56,7 +55,7 @@ public class GameClass extends Application{
                         executor.scheduleAtFixedRate(new Odmalowanie(controller), 0, 1, TimeUnit.MILLISECONDS);
                         break;
                     case E:
-                        controller.landing();
+                        //controller.landing();
                         System.out.println("Klawisz E został naciśnięty");
                         if (executor != null && !executor.isShutdown()) {
                             executor.shutdown();
